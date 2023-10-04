@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/ten"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/ll_admin_response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/ten"
+        android:layout_marginRight="@dimen/sixty"
+        android:layout_weight="10"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_admin_response"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ten"
+            android:layout_marginEnd="@dimen/ten"
+            android:background="@drawable/replay_background_admin"
+            android:gravity="left"
+            android:padding="@dimen/fifteen"
+            android:text="Vijendra"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fifteen"
+            android:layout_marginEnd="@dimen/ten"
+            android:layout_marginTop="@dimen/three"
+            android:gravity="left"
+            android:text="Vijendra"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_cust_response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginLeft="@dimen/forty"
+        android:layout_marginRight="@dimen/ten"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_cust_response"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginStart="@dimen/ten"
+            android:layout_marginEnd="@dimen/ten"
+            android:background="@drawable/replay_background"
+            android:gravity="right"
+            android:padding="@dimen/fifteen"
+            android:text="Vijendra"
+            android:textColor="@color/white"
+            android:textSize="@dimen/fifteen" />
+
+        <TextView
+            android:id="@+id/tv_date_another"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ten"
+            android:layout_marginTop="@dimen/three"
+            android:layout_marginEnd="@dimen/ten"
+            android:gravity="right"
+            android:text="Vijendra"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

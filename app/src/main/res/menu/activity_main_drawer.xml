@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="always">
+
+    <group
+        android:id="@+id/my_events_nav_drawer"
+        android:enabled="true">
+
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/nav_chat"
+            android:title="@string/dra_my_chat" />
+
+        <item
+            android:id="@+id/nav_my_matches"
+            android:icon="@drawable/nav_match"
+            android:title="Viewed Matches" />
+
+        <item
+            android:id="@+id/nav_my_connections"
+            android:icon="@drawable/nav_connect"
+            android:visible="true"
+            android:title="My Connections" />
+
+        <item
+            android:id="@+id/nav_who_viewed_my_profile"
+            android:icon="@drawable/nav_whoview"
+            android:visible="true"
+            android:title="Who Viewed My Profile" />
+
+        <item
+            android:id="@+id/nav_requests"
+            android:icon="@drawable/nav_interestrece"
+            android:title="Interest Received" />
+
+        <item
+            android:id="@+id/nav_interest_sent"
+            android:icon="@drawable/reqest"
+            android:title="Interest Sent" />
+
+        <item
+            android:id="@+id/nav_preferences"
+            android:icon="@drawable/prefernce"
+            android:visible="true"
+            android:title="My Preferences" />
+
+        <item
+            android:id="@+id/nav_shortlisted"
+            android:icon="@drawable/nav_shortlist"
+            android:title="My Shortlisted" />
+
+        <item
+            android:id="@+id/nav_block_profile"
+            android:icon="@drawable/nav_block_user"
+            android:title="Blocked Profiles" />
+
+
+        <!--     <item
+                 android:id="@+id/nav_notification"
+                 android:icon="@drawable/ic_notify"
+                 android:title="@string/dra_nofication" />-->
+
+    </group>
+
+    <group
+        android:enabled="true"
+        android:visible="true">
+
+        <item
+            android:id="@+id/nav_change_pass"
+            android:icon="@drawable/nav_changepwd"
+            android:title="Change Password" />
+
+    </group>
+
+    <group
+        android:enabled="true"
+        android:visible="true">
+
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/nav_about"
+            android:title="@string/dra_about_us" />
+
+    </group>
+
+
+    <group
+        android:id="@+id/event_nav_drawer"
+        android:enabled="true">
+
+        <item
+            android:id="@+id/nav_term_condition"
+            android:icon="@drawable/nav_contact"
+            android:title="@string/dra_terms_and_condn" />
+
+        <item
+            android:id="@+id/nav_contact_us"
+            android:icon="@drawable/nav_contact"
+            android:title="@string/dra_contact_us" />
+
+    </group>
+
+    <!--    <group
+            android:id="@+id/event_help_and_support"
+            android:enabled="true">
+
+            <item
+                android:id="@+id/nav_help_support"
+                android:icon="@drawable/ic_mobile"
+                android:title="@string/dra_help" />
+
+        </group>-->
+
+
+    <!--    <item android:title="Information">
+            <menu>
+
+                <item
+                    android:id="@+id/nav_aboutus"
+                    android:icon="@drawable/dra_about_us"
+                    android:title="About Us" />
+
+
+
+                <item
+                    android:id="@+id/nav_refund_policy"
+                    android:icon="@drawable/ic_refund_policy"
+                    android:title="Refund Policy" />
+
+
+                <item
+                    android:id="@+id/nav_terms_of_use"
+                    android:icon="@drawable/ic_terms"
+                    android:title="Terms of use" />
+
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/dra_share"
+                    android:title="Share" />
+
+
+            </menu>
+        </item>-->
+
+    <group android:id="@+id/dummy">
+
+        <!--        <item
+                    android:id="@+id/nav_my_address"
+                    android:title="My Business" />-->
+        <!-- <item
+             android:id="@+id/nav_info"
+             android:title="Refer a Friend" />-->
+        <!--<item
+            android:id="@+id/nav_settings"
+            android:title="Recipes" />-->
+        <!--<item
+            android:id="@+id/nav_blog"
+            android:title="Blog" />-->
+
+
+       <!-- <item
+            android:id="@+id/nav_faq"
+            android:title="FAQ's" />
+
+        <item
+            android:id="@+id/nav_terms_and_conditions"
+            android:title="@string/dra_terms_and_condn" />
+
+        <item
+            android:id="@+id/nav_privacy_policy"
+            android:title="@string/dra_privacy_policy" />-->
+
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/share"
+            android:title="@string/dra_share" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="@string/dra_logout" />
+    </group>
+
+    <group android:id="@+id/version">
+
+        <item
+            android:id="@+id/nav_Version"
+            android:title="Version 1.0" />
+
+    </group>
+
+</menu>

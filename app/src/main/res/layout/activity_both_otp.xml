@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".InitialActivities.RegistrationSteps.BothOtpActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="20dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="left"
+            android:background="@color/colorPrimary"
+            app:contentInsetStartWithNavigation="0dp"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+        <!-- app:contentInsetLeft="5dp"
+            app:contentInsetStart="5dp"-->
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_marginTop="@dimen/margin_15">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_layout_new"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_20">
+
+
+                <ImageView
+                    android:id="@+id/ivMailImage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_mail_otp" />
+
+                <ImageView
+                    android:id="@+id/ivMessageImage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_message_otp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llOtpSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20"
+                android:orientation="vertical">
+
+                <!--        <TextView
+                            android:id="@+id/tvOtpText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="@string/lbl_timer"
+                            android:textAppearance="@android:style/TextAppearance.Medium"
+                            android:textColor="@color/black" />-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvMailOtpTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Message Otp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/margin_12" />
+
+
+                    <com.mukesh.OtpView
+                        android:id="@+id/otp_mail_otp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:inputType="number"
+                        android:itemBackground="@drawable/bg_otp_number_border"
+                        android:textColor="@color/colorPrimary"
+                        app:hideLineWhenFilled="true"
+                        app:itemCount="6"
+                        app:itemHeight="35dp"
+                        app:itemSpacing="5dp"
+                        app:itemWidth="35dp"
+                        app:lineColor="@color/colorPrimary"
+                        app:state_filled="true"
+                        app:viewType="none" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tvAnd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:text="@string/lbl_and"
+                    android:textAllCaps="true"
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:textColor="@color/colorPrimaryVeryLight" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvMessageOtpTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Message Otp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/margin_12" />
+
+
+                    <com.mukesh.OtpView
+                        android:id="@+id/otp_mobile_otp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:inputType="number"
+                        android:itemBackground="@drawable/bg_otp_number_border"
+                        android:textColor="@color/colorPrimary"
+                        app:hideLineWhenFilled="true"
+                        app:itemCount="6"
+                        app:itemHeight="35dp"
+                        app:itemSpacing="5dp"
+                        app:itemWidth="35dp"
+                        app:lineColor="@color/colorPrimary"
+                        app:state_filled="true"
+                        app:viewType="none" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvResendTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/lbl_resend_otp_hint"
+                    android:textAppearance="@android:style/TextAppearance.Small"
+                    android:textColor="@color/gray" />
+
+                <TextView
+                    android:id="@+id/tvResendOtp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/lbl_resend_otp"
+                    android:textColor="@color/blue"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlPasswordId"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/circle_border"
+                    android:gravity="center"
+                    android:text="@string/lbl_sumit"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

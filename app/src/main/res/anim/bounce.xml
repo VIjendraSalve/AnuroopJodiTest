@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:interpolator="@android:anim/bounce_interpolator">
+
+    <!-- Use your working translate animation here-->
+     <translate
+         android:duration="3000"
+         android:fromYDelta="-60%p"
+         android:toYDelta="0%p" />
+
+<!--    <translate
+        android:duration="1000"
+        android:fillAfter="true"
+        android:fromXDelta="50%p"
+        android:fromYDelta="50%p"
+        android:toXDelta="50%p"
+        android:toYDelta="0%p" />-->
+</set>
+

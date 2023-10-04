@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".InsideActivities.Fragmentsss.SimpleSearchFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       android:layout_marginBottom="@dimen/margin_60">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/ten"
+                android:layout_marginLeft="@dimen/ten">
+
+                <TextView
+                    android:id="@+id/tvGendenTitleOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_gender"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvGendenTitleTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvGendenTitleOne"
+                    android:text="@string/lbl_select_gender_of_bride_groom"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvGendenTitleTwo"
+                    android:layout_marginTop="5dp" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_70">
+
+                        <RelativeLayout
+                            android:id="@+id/rlAgeFrom"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/border_layout">
+
+                            <ImageView
+                                android:id="@+id/ivAgeFromIcon"
+                                android:layout_width="@dimen/margin_20"
+                                android:layout_height="@dimen/margin_20"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/margin_10"
+                                app:srcCompat="@drawable/age_icon"/>
+
+                            <Spinner
+                                android:id="@+id/spinnerAgeFrom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="5dp"
+                                android:layout_toLeftOf="@+id/ivAgeFromIcon"
+                                android:gravity="center_vertical" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#ffffff"
+                            android:text="@string/lbl_age_from"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvAgeFromHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_3"
+                        android:layout_marginTop="@dimen/margin_3"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_age_from_hint"
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_70">
+
+                        <RelativeLayout
+                            android:id="@+id/rlAgeTo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/border_layout">
+
+                            <ImageView
+                                android:id="@+id/ivAgeToIcon"
+                                android:layout_width="@dimen/margin_20"
+                                android:layout_height="@dimen/margin_20"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/margin_10"
+                                app:srcCompat="@drawable/age_icon"/>
+
+                            <Spinner
+                                android:id="@+id/spinnerAgeTo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="5dp"
+                                android:layout_toLeftOf="@+id/ivAgeToIcon"
+                                android:gravity="center_vertical" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#ffffff"
+                            android:text="@string/lbl_age_to_height"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvHeightHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_3"
+                        android:layout_marginTop="@dimen/margin_3"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_age_from_hint"
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_70">
+
+                        <RelativeLayout
+                            android:id="@+id/rlHeightFrom"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/border_layout">
+
+                            <ImageView
+                                android:id="@+id/ivHeightFromIcon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/margin_10"
+                                app:srcCompat="@drawable/ic_height"/>
+
+                            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                                android:id="@+id/spinnerHeightFrom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="5dp"
+                                android:layout_toLeftOf="@+id/ivHeightFromIcon"
+                                android:gravity="center_vertical" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#ffffff"
+                            android:text="@string/lbl_height_from"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvHeightFromHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_3"
+                        android:layout_marginTop="@dimen/margin_3"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_height_from_hint"
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_70">
+
+                        <RelativeLayout
+                            android:id="@+id/rlHeightTo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/border_layout">
+
+                            <ImageView
+                                android:id="@+id/ivHeightToIcon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/margin_10"
+                                app:srcCompat="@drawable/ic_height"/>
+
+                            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                                android:id="@+id/spinnerHeightTo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="5dp"
+                                android:layout_toLeftOf="@+id/ivHeightToIcon"
+                                android:gravity="center_vertical" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#ffffff"
+                            android:text="@string/lbl_height_to"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvHeightToHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_3"
+                        android:layout_marginTop="@dimen/margin_3"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_height_from_hint"
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="10dp">
+
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/border_layout"
+                    android:drawableRight="@drawable/ic_mobile"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:inputType="text"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text=""
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#ffffff"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="10dp">
+
+                <EditText
+                    android:id="@+id/etMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/border_layout"
+                    android:drawableRight="@drawable/ic_mobile"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text=""
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#ffffff"
+                    android:text="Mobile No "
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_70">
+
+                    <RelativeLayout
+                        android:id="@+id/rlDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout">
+
+                        <ImageView
+                            android:id="@+id/ivStateIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/margin_10"
+                            app:srcCompat="@drawable/ic_marker"/>
+
+                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                            android:id="@+id/spinnerStatelist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/ivStateIcon"
+                            android:gravity="center_vertical" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_state"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvStateHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_state_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_70">
+
+                    <RelativeLayout
+                        android:id="@+id/rlCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout">
+
+                        <ImageView
+                            android:id="@+id/ivCityIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/margin_10"
+                            app:srcCompat="@drawable/ic_marker"/>
+
+                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                            android:id="@+id/spinnerCitylist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/ivCityIcon"
+                            android:gravity="center_vertical" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_city"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvCityHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_city_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvMotherTougue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_right_arrow"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:padding="@dimen/margin_15"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="Mother Tongue"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_mother_tongue"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvMaritalStatusHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_mother_tongue_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:id="@+id/tvMaritalStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_marital_status"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/black" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMaritalStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvMaritalStatus"
+                    android:layout_marginTop="15dp" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_20"
+                android:background="@drawable/circle_border"
+                android:gravity="center"
+                android:padding="@dimen/margin_15"
+                android:text="@string/lbl_sumit"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

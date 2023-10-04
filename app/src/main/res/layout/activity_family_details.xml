@@ -1,0 +1,1147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InitialActivities.RegistrationSteps.FamilyDetailsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="20dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="left"
+            android:background="@color/colorPrimary"
+            app:contentInsetStartWithNavigation="0dp"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+        <!-- app:contentInsetLeft="5dp"
+            app:contentInsetStart="5dp"-->
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_marginTop="@dimen/margin_15">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tvTitleOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_family_details"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <EditText
+                        android:id="@+id/etFatherName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:inputType="textCapWords|textNoSuggestions"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_father_name"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvFatherNameHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_father_name_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <EditText
+                        android:id="@+id/etMotherName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:inputType="textCapWords|textNoSuggestions"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_mother_name"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvMotherNameHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_mother_name_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <EditText
+                        android:id="@+id/etFatherOccupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:inputType="textCapWords|textNoSuggestions"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_father_occupation"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvFatherOccupationHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_father_occupation_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_70">
+
+                    <RelativeLayout
+                        android:id="@+id/rlLivingStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout">
+
+                        <ImageView
+                            android:id="@+id/ivLivingStyleIcon"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/margin_10"
+                            app:srcCompat="@drawable/blood" />
+
+                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                            android:id="@+id/spinnerLivingStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/ivLivingStyleIcon"
+                            android:gravity="center_vertical" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_living_style"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvLivingStyleHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_living_style_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <EditText
+                        android:id="@+id/etMotherOccupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:inputType="text|textNoSuggestions"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_mother_occupation"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvMotherOccupationHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_mother_occupation_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <EditText
+                        android:id="@+id/etMamaKul"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:inputType="text|textNoSuggestions"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="NONE"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_mama_kul"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvMamaKulHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_mama_kul_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvFatherCountryCode"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="@dimen/margin_15"
+                        android:layout_weight="0.6"
+                        android:background="@drawable/border_layout"
+                        android:digits="1234567890"
+                        android:drawableRight="@drawable/ic_right_arrow"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/gray"
+                        android:gravity="center_vertical"
+                        android:inputType="number"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="+91"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1.4">
+
+                        <EditText
+                            android:id="@+id/etFatherContact"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/border_layout"
+                            android:digits="1234567890"
+                            android:drawableRight="@drawable/ic_mobile"
+                            android:drawablePadding="10dp"
+                            android:drawableTint="@color/black"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:text=""
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#ffffff"
+                            android:text="@string/lbl_father_contact"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tvMobileHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_mobile_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvMotherCountryCode"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="@dimen/margin_15"
+                        android:layout_weight="0.6"
+                        android:background="@drawable/border_layout"
+                        android:digits="1234567890"
+                        android:drawableRight="@drawable/ic_right_arrow"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/gray"
+                        android:gravity="center_vertical"
+                        android:inputType="number"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="+91"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1.4">
+
+                        <EditText
+                            android:id="@+id/etMotherContact"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/border_layout"
+                            android:digits="1234567890"
+                            android:drawableRight="@drawable/ic_mobile"
+                            android:drawablePadding="10dp"
+                            android:drawableTint="@color/black"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:text=""
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#ffffff"
+                            android:text="@string/lbl_mother_contact"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tvMotherMobileHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_mobile_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20">
+
+                <TextView
+                    android:id="@+id/tvCreateForTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_sibling"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/black" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSiblings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvCreateForTitleTwo"
+                    android:layout_marginTop="25dp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_70">
+
+                    <RelativeLayout
+                        android:id="@+id/rlBrother"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout">
+
+                        <ImageView
+                            android:id="@+id/ivBrotherIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/margin_10"
+                            app:srcCompat="@drawable/ic_height"></ImageView>
+
+                        <Spinner
+                            android:id="@+id/spinnerBother"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/ivBrotherIcon"
+                            android:gravity="center_vertical" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_brother"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvBrotherHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_brother_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_70">
+
+                    <RelativeLayout
+                        android:id="@+id/rlSister"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout">
+
+                        <ImageView
+                            android:id="@+id/ivSisterIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/margin_10"
+                            app:srcCompat="@drawable/ic_height"></ImageView>
+
+                        <Spinner
+                            android:id="@+id/spinnerSister"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/ivSisterIcon"
+                            android:gravity="center_vertical" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_sister"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvSisterHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_sister_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_70">
+
+                    <RelativeLayout
+                        android:id="@+id/rlMarriedBrother"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout">
+
+                        <ImageView
+                            android:id="@+id/ivMarriedBrotherIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/margin_10"
+                            app:srcCompat="@drawable/ic_height"></ImageView>
+
+                        <Spinner
+                            android:id="@+id/spinnerMarriedBrother"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/ivMarriedBrotherIcon"
+                            android:gravity="center_vertical" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_married_brother"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvMarriedBrotherHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_married_brother_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_70">
+
+                    <RelativeLayout
+                        android:id="@+id/rlMarriedSister"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout">
+
+                        <ImageView
+                            android:id="@+id/ivMarriedSisterIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/margin_10"
+                            app:srcCompat="@drawable/ic_height"></ImageView>
+
+                        <Spinner
+                            android:id="@+id/spinnerMarriedSister"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/ivMarriedSisterIcon"
+                            android:gravity="center_vertical" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_married_sister"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvMarriedSisterHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_married_sister_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <EditText
+                        android:id="@+id/etUncleNameOne"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:inputType="textCapWords|textNoSuggestions"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_uncle_name_one"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvUncleNameHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_uncle_name_one_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <EditText
+                        android:id="@+id/etUncleOneOccupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:inputType="text|textNoSuggestions"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_uncle_one"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvUncleOneOccupationHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_uncle_one_occupation_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <EditText
+                        android:id="@+id/etMaternalUncleName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:inputType="text|textNoSuggestions"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_maternal_uncle"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvMaternalUncleNameHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_Maternal_uncle_name_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <EditText
+                        android:id="@+id/etMaternalUncleOccupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:inputType="text|textNoSuggestions"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_maternal_uncle_occupation"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvMaternalUncleOccupationHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_Maternal_uncle_occupation_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etAboutMe"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="15dp"
+                        android:drawableTint="@color/black"
+                        android:gravity="left|top"
+                        android:inputType="text|textNoSuggestions|textMultiLine"
+                        android:lineSpacingMultiplier="1.2"
+                        android:lines="3"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="20dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="15dp"
+                        android:singleLine="false"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_about_me"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvAboutMeHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_about_me_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etHobby"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="15dp"
+                        android:drawableTint="@color/black"
+                        android:gravity="left|top"
+                        android:inputType="text|textNoSuggestions|textMultiLine"
+                        android:lineSpacingMultiplier="1.2"
+                        android:lines="3"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="20dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="15dp"
+                        android:singleLine="false"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_hobby"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvFirstNameHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_hobby_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnStepfour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_20"
+                android:background="@drawable/circle_border"
+                android:gravity="center"
+                android:padding="@dimen/margin_15"
+                android:text="@string/lbl_next"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

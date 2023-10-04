@@ -1,0 +1,133 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BrahminMatrimonialApp" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimaryFullDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:itemBackground">@color/colorPrimary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/black</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <item name="drawerArrowStyle">@style/WhiteDrawerIconStyle</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_drawable_left</item>
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBarOverlay">true</item>
+
+    </style>
+
+    <style name="WhiteDrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/colorPrimary</item>
+    </style>
+ <!--   <style name="WhiteDrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/white</item>
+
+    </style>-->
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.BrahminMatrimonialApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MenuItems" parent="AppTheme">
+        <item name="android:textSize">10dp</item>
+        <item name="android:actionButtonStyle">@style/myActionButtonStyle</item>
+        <item name="actionButtonStyle">@style/myActionButtonStyle</item>
+    </style>
+
+    <style name="myActionButtonStyle" parent="Widget.AppCompat.ActionButton">
+        <item name="android:minWidth">20dp</item>
+        <item name="android:maxWidth">38dp</item>
+        <item name="android:width">28dp</item>
+        <item name="android:color">@color/colorPrimary</item>
+    </style>
+
+    <style name="alert_dialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+        <!-- <item name="android:windowEnterAnimation">@anim/fab_scale_up</item>
+         <item name="android:windowExitAnimation">@anim/fab_scale_down</item>-->
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--  <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+          <item name="colorAccent">@color/colorPrimary</item>
+      </style>-->
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/colorPrimaryFullDark</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/black</item>
+        <!-- Used for the background -->
+        <item name="android:background">#FFFFFF</item>
+        <!-- <item name="android:textColor">#FFEB3B</item>-->
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14sp</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Theme.BrahminMatrimonialApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.BrahminMatrimonialApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="bnve">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="bnve_primary_bg" parent="bnve">
+        <item name="android:background">@color/colorPrimaryFullDark</item>
+    </style>
+    <style name="bnve_white_bg" parent="bnve">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="R2Theme" parent="Theme.AppCompat.Light.NoActionBar">=
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondaryInverse">@color/black</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="drawerArrowStyle">@style/WhiteDrawerIconStyle</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_drawable_left</item>
+    </style>
+
+    <style name="R2Theme.Toolbar" parent="R2Theme">
+        <item name="actionMenuTextColor">@color/colorAccent</item>
+    </style>
+
+
+</resources>

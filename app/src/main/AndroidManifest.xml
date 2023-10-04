@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET"  />
+    <!--
+ <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"  android:exported="false" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"  android:exported="false" />
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"  android:exported="false" />
+    -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> <!-- <uses-permission android:name="android.permission.VIBRATE"  android:exported="false" /> -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <!--
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"  android:exported="false" />
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION"  android:exported="false" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"  android:exported="false" /> &lt;!&ndash; <uses-permission android:name="android.permission.WAKE_LOCK"  android:exported="false" /> &ndash;&gt;
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"  android:exported="false" />
+    -->
+    <uses-permission
+        android:name="android.permission.CALL_PRIVILEGED"
+        tools:ignore="ProtectedPermissions"/>
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/logo_app"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/logo_app"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BrahminMatrimonialApp"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".InsideActivities.Activities.MyQRCodeActivity"
+            android:exported="false"/>
+        <activity android:name=".InsideActivities.Vijendra.FullPhotoZoomActivity"
+            android:exported="false"/>
+        <activity android:name=".InitialActivities.ForgotPasswordActivity"
+            android:exported="false"/>
+        <activity android:name=".InsideActivities.Vijendra.NotificationActivity"
+            android:exported="false"/>
+        <activity android:name=".InitialActivities.ProfileActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.MyPreferencesListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.MyRequestListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.SearchProfileListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.MyConnectionListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.MyProfileViewedMemberListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.MyBlockListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.FeaturedProfileListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.InterestSentListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.ActivityInformation"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.ChatDetailListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.MyChatListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.MyShortlistedListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Vijendra.MyMatchesListActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Activities.OthersProfileActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Activities.VendorListActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.ChangePasswordActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.PrefredPartner.PreferedPartnerMotherTongueActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.PrefredPartner.PreferedPartnerEducationMutiSelectionActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.PrefredPartner.PreferredPatnerActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.PrefredPartner.SubCasteMultiSelectionActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.RegistrationSteps.EducationMultiSelectionActivity"  android:exported="false" />
+        <activity
+            android:name=".InsideActivities.DashboardActivity"
+            android:theme="@style/Theme.BrahminMatrimonialApp.NoActionBar"  android:exported="false" />
+        <activity android:name=".InitialActivities.RegistrationSteps.PackageActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.RegistrationSteps.AboutDetailsActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.RegistrationSteps.FamilyDetailsActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.RegistrationSteps.ProfessionalDetailsActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.RegistrationSteps.PersonalDetailsActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.RegistrationSteps.BasicDetailsAddAndEditActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.RegistrationSteps.BothOtpActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.RegistrationSteps.SignUpActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.SplashTwoActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.LoginActivity"  android:exported="false" />
+        <activity android:name=".InitialActivities.NewShowcase.IntroActivity"  android:exported="false" />
+        <activity android:name=".InsideActivities.Activities.SuccessfulMarriageDetailsActivity"  android:exported="false" />
+        <activity android:name=".Notification.ActivityNotification"  android:exported="false" />
+
+        <activity android:name=".InitialActivities.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <service android:name=".Notification.MyAndroidFirebaseMsgService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

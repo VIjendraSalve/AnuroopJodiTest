@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".InitialActivities.RegistrationSteps.AboutDetailsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="20dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="left"
+            android:background="@color/colorPrimary"
+            app:contentInsetStartWithNavigation="0dp"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+        <!-- app:contentInsetLeft="5dp"
+            app:contentInsetStart="5dp"-->
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_marginTop="@dimen/margin_15">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/tvTitleOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_add_about_me"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <RelativeLayout
+                android:id="@+id/rlProfilePic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivProfilePic"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_centerHorizontal="true"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:src="@drawable/default_groom"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="4dp"
+                    android:scaleType="centerCrop"
+                    app:civ_shadow="true"
+                    app:civ_shadow_color="@color/gray"
+                    app:civ_shadow_radius="2" />
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivAddImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/ivProfilePic"
+                    android:layout_marginLeft="-35dp"
+                    android:layout_marginTop="-50dp"
+                    android:layout_toRightOf="@+id/ivProfilePic"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:civ_border_color="@color/colorPrimaryFullDark"
+                    app:civ_border_width="6dp"
+                    app:civ_circle_background_color="@color/colorPrimaryFullDark"
+                    app:civ_shadow="true"
+                    app:civ_shadow_color="@color/white"
+                    app:civ_shadow_radius="2" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/btnChooseImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_20"
+                android:background="@drawable/circle_border"
+                android:gravity="center"
+                android:padding="@dimen/margin_15"
+                android:text="@string/lbl_choose_images"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="15dp"
+                        android:drawableTint="@color/black"
+                        android:gravity="left|top"
+                        android:inputType="text|textNoSuggestions|textMultiLine"
+                        android:lineSpacingMultiplier="1.2"
+                        android:lines="3"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="20dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="15dp"
+                        android:singleLine="false"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_about_me"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvAboutMeHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_about_me_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etHobby"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_layout"
+                        android:drawableRight="@drawable/ic_male"
+                        android:drawablePadding="15dp"
+                        android:drawableTint="@color/black"
+                        android:gravity="left|top"
+                        android:inputType="text|textNoSuggestions|textMultiLine"
+                        android:lineSpacingMultiplier="1.2"
+                        android:lines="3"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="20dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="15dp"
+                        android:singleLine="false"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#ffffff"
+                        android:text="@string/lbl_hobby"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvFirstNameHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_hobby_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_20"
+                android:background="@drawable/circle_border"
+                android:gravity="center"
+                android:padding="@dimen/margin_15"
+                android:text="@string/lbl_sumit"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

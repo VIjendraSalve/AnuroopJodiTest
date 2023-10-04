@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:elevation="@dimen/margin_15">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ivImgCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <RelativeLayout
+                android:id="@+id/rlTopView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/llPrice"
+                    android:layout_toRightOf="@+id/offer_select">
+
+                    <TextView
+                        android:id="@+id/offer_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/margin_5"
+                        android:text="Package Name"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvBenifit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/offer_name"
+                        android:text="(Package Name)"
+                        android:textColor="@color/green_variant"
+                        android:textSize="@dimen/margin_10" />
+                </RelativeLayout>
+
+                <RadioButton
+                    android:id="@+id/offer_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true" />
+
+
+                <LinearLayout
+                    android:id="@+id/llPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvRetailerRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="1dp"
+                        android:text="Retailer Price"
+                        android:textColor="@color/color_solved_border"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTradePrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="1dp"
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:text="Trade Price"
+                        android:textSize="@dimen/margin_10" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlBenifits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlTopView"
+                android:padding="5dp">
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/grey_transparent" />
+
+
+                <TextView
+                    android:id="@+id/tvBenifitTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Premium Benifits Include"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/margin_10" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlBenifits"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/rlChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/ivChat"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/mobile"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/tvChat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ivChat"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Unlimited chat"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/margin_10" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/ivEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/ic_email_24"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ivEmail"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Unlimited emails"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/margin_10" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlHoroscope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/ivHoroscope"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/ic_horoscope_24"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/tvHoroscope"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ivHoroscope"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Horoscope infomation"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/margin_10" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlServices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ivService"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/ic_service_24"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/tvService"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ivService"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="24 x 7 service"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/margin_10" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

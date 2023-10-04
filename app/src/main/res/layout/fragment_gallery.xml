@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="?attr/actionBarSize">
+
+            <LinearLayout
+                android:id="@+id/MainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--<RelativeLayout
+                    android:id="@+id/rlArcLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/white">
+
+                    <com.github.florent37.arclayout.ArcLayout
+                        android:id="@+id/diagonalLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:elevation="10dip"
+                        app:arc_cropDirection="cropOutside"
+                        app:arc_height="90dp"
+                        app:arc_position="bottom">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/civ_event_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/gradient_login"
+                                android:scaleType="centerCrop" />
+
+
+                            &lt;!&ndash;  <de.hdodenhof.circleimageview.CircleImageView
+                                  android:id="@+id/ivProfileImage"
+                                  android:layout_width="40dp"
+                                  android:layout_height="40dp"
+                                  android:layout_alignParentRight="true"
+                                  android:layout_margin="10dp"
+                                  android:elevation="50dp"
+                                  android:src="@drawable/ic_user"
+                                  android:visibility="invisible"
+                                  app:civ_border_color="@color/white"
+                                  app:civ_border_width="4dp"
+                                  app:civ_circle_background_color="@color/white"
+                                  app:civ_shadow="true"
+                                  app:civ_shadow_color="@color/white"
+                                  app:civ_shadow_radius="2" />&ndash;&gt;
+
+                        </RelativeLayout>
+                    </com.github.florent37.arclayout.ArcLayout>
+
+
+                </RelativeLayout>-->
+
+                <!--  <androidx.cardview.widget.CardView
+                      android:id="@+id/cvEditText"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/rlArcLayout"
+                      android:layout_marginTop="-120dp"
+                      app:cardCornerRadius="10dp"
+                      app:cardElevation="5dp"
+                      app:cardUseCompatPadding="true">
+
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginLeft="5dp"
+                          android:layout_marginTop="10dp"
+                          android:layout_marginRight="5dp"
+                          android:orientation="vertical">
+
+                          <TextView
+                              android:id="@+id/tvTitle"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_centerHorizontal="true"
+                              android:padding="10dp"
+                              android:text="@string/title_main_services"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                              android:textColor="@color/black"
+                              android:textStyle="bold" />
+
+                          <View
+                              android:layout_width="match_parent"
+                              android:layout_height="1dp"
+                              android:layout_marginTop="5dp"
+                              android:layout_marginBottom="5dp"
+                              android:background="@color/gray"></View>
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="horizontal"
+                              android:weightSum="4">
+
+
+                              <LinearLayout
+                                  android:id="@+id/rlMatrimony"
+                                  android:layout_width="0dp"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:orientation="vertical"
+                                  android:padding="10dp">
+
+                                  <ImageView
+                                      android:id="@+id/ivCategoryImg"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="90dp"
+                                      android:layout_gravity="center"
+                                      android:src="@drawable/ic_matrimony" />
+
+
+                                  <TextView
+                                      android:id="@+id/tvCategoryName"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:ellipsize="end"
+                                      android:gravity="center"
+                                      android:inputType="textNoSuggestions|textMultiLine"
+                                      android:maxLines="2"
+                                      android:minLines="2"
+                                      android:text="@string/title_matrimonial"
+                                      android:textColor="@color/black"
+                                      android:textSize="11sp" />
+
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:id="@+id/rlAddBussiness"
+                                  android:layout_width="0dp"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:orientation="vertical"
+                                  android:padding="10dp">
+
+                                  <ImageView
+                                      android:layout_width="match_parent"
+                                      android:layout_height="90dp"
+                                      android:layout_gravity="center"
+                                      android:src="@drawable/ic_business_new" />
+
+
+                                  <TextView
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:ellipsize="end"
+                                      android:gravity="center"
+                                      android:inputType="textNoSuggestions|textMultiLine"
+                                      android:maxLines="2"
+                                      android:minLines="2"
+                                      android:text="@string/dra_my_business"
+                                      android:textColor="@color/black"
+                                      android:textSize="11sp" />
+
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:id="@+id/rlLedGenration"
+                                  android:layout_width="0dp"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:orientation="vertical"
+                                  android:padding="10dp">
+
+                                  <ImageView
+                                      android:layout_width="match_parent"
+                                      android:layout_height="90dp"
+                                      android:layout_gravity="center"
+                                      android:src="@drawable/ic_leads" />
+
+
+                                  <TextView
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:ellipsize="end"
+                                      android:gravity="center"
+                                      android:inputType="textNoSuggestions|textMultiLine"
+                                      android:maxLines="2"
+                                      android:minLines="2"
+                                      android:text="@string/title_leads"
+                                      android:textColor="@color/black"
+                                      android:textSize="11sp" />
+
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:id="@+id/rlJanganna"
+                                  android:layout_width="0dp"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:orientation="vertical"
+                                  android:padding="10dp">
+
+                                  <ImageView
+                                      android:layout_width="match_parent"
+                                      android:layout_height="90dp"
+                                      android:layout_gravity="center"
+                                      android:src="@drawable/ic_census" />
+
+
+                                  <TextView
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:ellipsize="end"
+                                      android:gravity="center"
+                                      android:inputType="textNoSuggestions|textMultiLine"
+                                      android:maxLines="2"
+                                      android:minLines="2"
+                                      android:text="@string/title_census"
+                                      android:textColor="@color/black"
+                                      android:textSize="11sp" />
+
+
+                              </LinearLayout>
+                          </LinearLayout>
+                      </LinearLayout>
+                  </androidx.cardview.widget.CardView>-->
+
+
+            <!--    <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-180dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rlOfferBanners"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tvMoreBanners"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:drawableRight="@drawable/ic_right_arrow"
+                            android:drawableTint="@color/colorPrimary"
+                            android:text="More"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="@color/colorPrimary"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/tvPromoTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp"
+                            android:layout_toLeftOf="@+id/tvMoreBanners"
+                            android:text="MOST RELEVANT"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_slider_mainActivity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rlOfferBanners"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginRight="16dp"
+                        app:cardCornerRadius="8dp">
+
+                        <com.smarteist.autoimageslider.SliderView
+                            android:id="@+id/imageSlider"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"
+                            app:sliderAnimationDuration="500"
+                            app:sliderAutoCycleDirection="back_and_forth"
+                            app:sliderIndicatorAnimationDuration="500"
+                            app:sliderIndicatorEnabled="true"
+                            app:sliderIndicatorGravity="center_horizontal|bottom"
+                            app:sliderIndicatorMargin="15dp"
+                            app:sliderIndicatorOrientation="horizontal"
+                            app:sliderIndicatorPadding="3dp"
+                            app:sliderIndicatorRadius="2dp"
+                            app:sliderIndicatorSelectedColor="#5A5A5A"
+                            app:sliderIndicatorUnselectedColor="#FFF"
+                            app:sliderScrollTimeInSec="1" />
+
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>-->
+
+                <RelativeLayout
+                    android:id="@+id/rlSearch"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlTopView"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/border_layout_new"
+                    android:clickable="true"
+                    android:elevation="10dp"
+                    android:visibility="gone"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/ivSearch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:clickable="false"
+                        android:focusableInTouchMode="false"
+                        app:srcCompat="@drawable/ic_search" />
+
+                    <EditText
+                        android:id="@+id/editMobileNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/ivSearch"
+                        android:background="@null"
+                        android:editable="false"
+                        android:hint="Search service for you"
+                        android:textSize="@dimen/margin_15"/>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rlAllServices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/tvMoreServices"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:drawableRight="@drawable/ic_right_arrow"
+                        android:drawableTint="@color/colorPrimary"
+                        android:text="More"
+                        android:textColor="@color/colorPrimary"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/tvAllServices"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Our Wedding Services"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <RelativeLayout
+                        android:id="@+id/progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone">
+
+                        <ProgressBar
+                            android:id="@+id/prog"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:indeterminateTint="@color/colorPrimary"
+                            android:indeterminateTintMode="src_atop" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/prog"
+                            android:layout_centerHorizontal="true"
+                            android:text="Loading..."
+                            android:textColor="@color/black" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/noInternet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true">
+
+                        <ImageView
+                            android:id="@+id/img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:src="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:id="@+id/tvAlertText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img"
+                            android:layout_centerHorizontal="true"
+                            android:text="No Services Available"
+                            android:textColor="@color/black" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_transparent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/colorPrimaryFullDark"
+            android:padding="7dip"
+            android:progressTint="@color/colorPrimaryFullDark"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+</RelativeLayout>
+
