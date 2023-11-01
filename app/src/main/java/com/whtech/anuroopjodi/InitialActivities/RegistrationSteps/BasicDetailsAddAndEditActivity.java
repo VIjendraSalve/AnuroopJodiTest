@@ -1003,7 +1003,6 @@ public class BasicDetailsAddAndEditActivity extends BaseActivity implements Time
                                 } else {
 
                                 }
-
                             }
 
                         } else {
@@ -1442,14 +1441,16 @@ public class BasicDetailsAddAndEditActivity extends BaseActivity implements Time
             min = String.valueOf(minute);
 
         // Append in a StringBuilder
-      /*  String aTime = new StringBuilder().append(hour).append(':')
-                .append(min).append(" ").append(timeSet).toString();*/
+        String aTime = new StringBuilder().append(hour).append(':')
+                .append(min).append(" ").append(timeSet).toString();
 
         strBirthTime = String.format("%02d:%02d %2s", hour, minute, timeSet);
         //strBirthTime = String.format("%02d:%02d", hour, minute);
 
         tvBirthTime.setText(strBirthTime);
     }
+
+
 
     public static class Utility {
         public static int calculateNoOfColumns(Context context, float columnWidthDp) { // For example columnWidthdp=180

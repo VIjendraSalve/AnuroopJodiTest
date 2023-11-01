@@ -241,10 +241,10 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
         findViewById(R.id.btnSteptwo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (SharedPref.getPrefs(_act, IConstant.AADHAR_PHOTO_STATUS) != null &&
-                        !SharedPref.getPrefs(_act, IConstant.AADHAR_PHOTO_STATUS).equals("null")) {
-                if (SharedPref.getPrefs(_act, IConstant.PROFILE_PHOTO_STATUS) != null &&
-                        !SharedPref.getPrefs(_act, IConstant.PROFILE_PHOTO_STATUS).equals("null")) {
+               /* if (SharedPref.getPrefs(_act, IConstant.AADHAR_PHOTO_STATUS) != null &&
+                        !SharedPref.getPrefs(_act, IConstant.AADHAR_PHOTO_STATUS).equals("null")) {*/
+                /*if (SharedPref.getPrefs(_act, IConstant.PROFILE_PHOTO_STATUS) != null &&
+                        !SharedPref.getPrefs(_act, IConstant.PROFILE_PHOTO_STATUS).equals("null")) {*/
                     if (strHeightId != null && !strHeightId.isEmpty() && !strHeightId.equals("null") && !strHeightId.equals("0")) {
                         if (strBloodGroupId != null && !strBloodGroupId.isEmpty() && !strBloodGroupId.equals("null") && !strBloodGroupId.equals("0")) {
                             if (strRashiId != null && !strRashiId.isEmpty() && !strRashiId.equals("null") && !strRashiId.equals("0")) {
@@ -282,12 +282,12 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
                     } else {
                         Helper_Method.toaster(_act, "Select Height");
                     }
-                } else {
+                 /*else {
                     Helper_Method.toaster(_act, "Please upload profile photo");
-                }
-                } else {
+                }*/
+                 /*else {
                     Helper_Method.toaster(_act, "Please upload Aadhar photo");
-                }
+                }*/
 
 
             }
@@ -318,7 +318,7 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
 
         camera = new Camera((AppCompatActivity) _act);
 
-        ivAdharImg1.setOnClickListener(new View.OnClickListener() {
+       /* ivAdharImg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPref.setPrefs(PersonalDetailsActivity.this, IConstant.FRONTBACK, "front");
@@ -398,9 +398,9 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
                         .onSameThread()
                         .check();
             }
-        });
+        });*/
 
-        ivEditProfilePhoto.setOnClickListener(new View.OnClickListener() {
+        /*ivEditProfilePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPref.setPrefs(PersonalDetailsActivity.this, IConstant.FRONTBACK, "back");
@@ -439,7 +439,7 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
                         .onSameThread()
                         .check();
             }
-        });
+        });*/
 
         ivHoroscopeImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -498,11 +498,11 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
         profile_image_name = imagename;
         profile_image_path = output;
         if (img_no == 0) {
-            uploadFile(profile_image_path, profile_image_name);
+            //uploadFile(profile_image_path, profile_image_name);
         } else if (img_no == 1) {
             uploadFileHoroscope(profile_image_path, profile_image_name);
         } else if (img_no == 2) {
-            uploadFileUpserProfile(profile_image_path, profile_image_name);
+           // uploadFileUpserProfile(profile_image_path, profile_image_name);
         }
     }
 
