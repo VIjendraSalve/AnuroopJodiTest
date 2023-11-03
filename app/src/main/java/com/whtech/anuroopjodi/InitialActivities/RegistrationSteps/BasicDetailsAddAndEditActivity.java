@@ -877,14 +877,14 @@ public class BasicDetailsAddAndEditActivity extends BaseActivity implements Time
                                         !SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.CASTE).equals("null") &&
                                         !SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.CASTE).equals("")) {
                                     spinnerCastelist.setSelection(0);
-                                   /* for (int k = 0; k < casteArrayList.size(); k++) {
+                                    for (int k = 0; k < casteArrayList.size(); k++) {
                                         Log.d(TAG, "onResponse: 1"+casteArrayList.get(k).getCaste_name());
 
-                                        if (casteArrayList.get(k).getCaste_name().equals
-                                                (casteArrayList.get(1).getCaste_name())) {
+                                        if (casteArrayList.get(k).getId().equals
+                                                (SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.CASTE))) {
                                             spinnerCastelist.setSelection(k);
                                         }
-                                    }*/
+                                    }
                                 } else {
 
                                 }

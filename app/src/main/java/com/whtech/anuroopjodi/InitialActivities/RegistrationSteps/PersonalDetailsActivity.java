@@ -1,5 +1,7 @@
 package com.whtech.anuroopjodi.InitialActivities.RegistrationSteps;
 
+import static android.os.Build.VERSION.SDK_INT;
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -318,44 +320,85 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
 
         camera = new Camera((AppCompatActivity) _act);
 
-       /* ivAdharImg1.setOnClickListener(new View.OnClickListener() {
+        ivAdharImg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPref.setPrefs(PersonalDetailsActivity.this, IConstant.FRONTBACK, "front");
-                Dexter.withActivity(PersonalDetailsActivity.this)
-                        .withPermissions(
-                                Manifest.permission.CAMERA,
-                                Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        .withListener(new MultiplePermissionsListener() {
-                            @Override
-                            public void onPermissionsChecked(MultiplePermissionsReport report) {
-                                // check if all permissions are granted
-                                if (report.areAllPermissionsGranted()) {
-                                    // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
-                                    camera.selectImage(ivAdharImg1, 0);
+                if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    Dexter.withActivity(PersonalDetailsActivity.this)
+                            .withPermissions(
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.READ_MEDIA_VIDEO,
+                                    Manifest.permission.READ_MEDIA_IMAGES,
+                                    Manifest.permission.READ_MEDIA_AUDIO)
+                                    /*Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)*/
+                            .withListener(new MultiplePermissionsListener() {
+                                @Override
+                                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                    // check if all permissions are granted
+                                    if (report.areAllPermissionsGranted()) {
+                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                        camera.selectImage(ivAdharImg1, 0);
+                                    }
+                                    // check for permanent denial of any permission
+                                    if (report.isAnyPermissionPermanentlyDenied()) {
+                                        // show alert dialog navigating to Settings
+                                        showSettingsDialog();
+                                    }
                                 }
-                                // check for permanent denial of any permission
-                                if (report.isAnyPermissionPermanentlyDenied()) {
-                                    // show alert dialog navigating to Settings
-                                    showSettingsDialog();
-                                }
-                            }
 
 
-                            @Override
-                            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                                token.continuePermissionRequest();
-                            }
-                        }).
-                        withErrorListener(new PermissionRequestErrorListener() {
-                            @Override
-                            public void onError(DexterError error) {
-                                Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .onSameThread()
-                        .check();
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).
+                            withErrorListener(new PermissionRequestErrorListener() {
+                                @Override
+                                public void onError(DexterError error) {
+                                    Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .onSameThread()
+                            .check();
+                }
+                else{
+                    Dexter.withActivity(PersonalDetailsActivity.this)
+                            .withPermissions(
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            .withListener(new MultiplePermissionsListener() {
+                                @Override
+                                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                    // check if all permissions are granted
+                                    if (report.areAllPermissionsGranted()) {
+                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                        camera.selectImage(ivProfileImage, 2);
+                                    }
+                                    // check for permanent denial of any permission
+                                    if (report.isAnyPermissionPermanentlyDenied()) {
+                                        // show alert dialog navigating to Settings
+                                        showSettingsDialog();
+                                    }
+                                }
+
+
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).
+                            withErrorListener(new PermissionRequestErrorListener() {
+                                @Override
+                                public void onError(DexterError error) {
+                                    Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .onSameThread()
+                            .check();
+                }
             }
         });
 
@@ -363,121 +406,243 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
             @Override
             public void onClick(View view) {
                 SharedPref.setPrefs(PersonalDetailsActivity.this, IConstant.FRONTBACK, "back");
-                Dexter.withActivity(PersonalDetailsActivity.this)
-                        .withPermissions(
-                                Manifest.permission.CAMERA,
-                                Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        .withListener(new MultiplePermissionsListener() {
-                            @Override
-                            public void onPermissionsChecked(MultiplePermissionsReport report) {
-                                // check if all permissions are granted
-                                if (report.areAllPermissionsGranted()) {
-                                    // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
-                                    camera.selectImage(ivAdharImg2, 0);
+                if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    Dexter.withActivity(PersonalDetailsActivity.this)
+                            .withPermissions(
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.READ_MEDIA_VIDEO,
+                                    Manifest.permission.READ_MEDIA_IMAGES,
+                                    Manifest.permission.READ_MEDIA_AUDIO)
+                                    /*Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)*/
+                            .withListener(new MultiplePermissionsListener() {
+                                @Override
+                                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                    // check if all permissions are granted
+                                    if (report.areAllPermissionsGranted()) {
+                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                        camera.selectImage(ivAdharImg2, 0);
+                                    }
+                                    // check for permanent denial of any permission
+                                    if (report.isAnyPermissionPermanentlyDenied()) {
+                                        // show alert dialog navigating to Settings
+                                        showSettingsDialog();
+                                    }
                                 }
-                                // check for permanent denial of any permission
-                                if (report.isAnyPermissionPermanentlyDenied()) {
-                                    // show alert dialog navigating to Settings
-                                    showSettingsDialog();
-                                }
-                            }
 
 
-                            @Override
-                            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                                token.continuePermissionRequest();
-                            }
-                        }).
-                        withErrorListener(new PermissionRequestErrorListener() {
-                            @Override
-                            public void onError(DexterError error) {
-                                Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .onSameThread()
-                        .check();
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).
+                            withErrorListener(new PermissionRequestErrorListener() {
+                                @Override
+                                public void onError(DexterError error) {
+                                    Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .onSameThread()
+                            .check();
+                }else{
+                    Dexter.withActivity(PersonalDetailsActivity.this)
+                            .withPermissions(
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            .withListener(new MultiplePermissionsListener() {
+                                @Override
+                                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                    // check if all permissions are granted
+                                    if (report.areAllPermissionsGranted()) {
+                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                        camera.selectImage(ivProfileImage, 2);
+                                    }
+                                    // check for permanent denial of any permission
+                                    if (report.isAnyPermissionPermanentlyDenied()) {
+                                        // show alert dialog navigating to Settings
+                                        showSettingsDialog();
+                                    }
+                                }
+
+
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).
+                            withErrorListener(new PermissionRequestErrorListener() {
+                                @Override
+                                public void onError(DexterError error) {
+                                    Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .onSameThread()
+                            .check();
+                }
             }
-        });*/
+        });
 
-        /*ivEditProfilePhoto.setOnClickListener(new View.OnClickListener() {
+        ivEditProfilePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPref.setPrefs(PersonalDetailsActivity.this, IConstant.FRONTBACK, "back");
-                Dexter.withActivity(PersonalDetailsActivity.this)
-                        .withPermissions(
-                                Manifest.permission.CAMERA,
-                                Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        .withListener(new MultiplePermissionsListener() {
-                            @Override
-                            public void onPermissionsChecked(MultiplePermissionsReport report) {
-                                // check if all permissions are granted
-                                if (report.areAllPermissionsGranted()) {
-                                    // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
-                                    camera.selectImage(ivProfileImage, 2);
+                if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    Dexter.withActivity(PersonalDetailsActivity.this)
+                            .withPermissions(
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.READ_MEDIA_VIDEO,
+                                    Manifest.permission.READ_MEDIA_IMAGES,
+                                    Manifest.permission.READ_MEDIA_AUDIO)
+                                    /*Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)*/
+                            .withListener(new MultiplePermissionsListener() {
+                                @Override
+                                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                    // check if all permissions are granted
+                                    if (report.areAllPermissionsGranted()) {
+                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                        camera.selectImage(ivProfileImage, 2);
+                                    }
+                                    // check for permanent denial of any permission
+                                    if (report.isAnyPermissionPermanentlyDenied()) {
+                                        // show alert dialog navigating to Settings
+                                        showSettingsDialog();
+                                    }
                                 }
-                                // check for permanent denial of any permission
-                                if (report.isAnyPermissionPermanentlyDenied()) {
-                                    // show alert dialog navigating to Settings
-                                    showSettingsDialog();
-                                }
-                            }
 
 
-                            @Override
-                            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                                token.continuePermissionRequest();
-                            }
-                        }).
-                        withErrorListener(new PermissionRequestErrorListener() {
-                            @Override
-                            public void onError(DexterError error) {
-                                Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .onSameThread()
-                        .check();
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).
+                            withErrorListener(new PermissionRequestErrorListener() {
+                                @Override
+                                public void onError(DexterError error) {
+                                    Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .onSameThread()
+                            .check();
+                }
+                else{
+                    Dexter.withActivity(PersonalDetailsActivity.this)
+                            .withPermissions(
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            .withListener(new MultiplePermissionsListener() {
+                                @Override
+                                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                    // check if all permissions are granted
+                                    if (report.areAllPermissionsGranted()) {
+                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                        camera.selectImage(ivProfileImage, 2);
+                                    }
+                                    // check for permanent denial of any permission
+                                    if (report.isAnyPermissionPermanentlyDenied()) {
+                                        // show alert dialog navigating to Settings
+                                        showSettingsDialog();
+                                    }
+                                }
+
+
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).
+                            withErrorListener(new PermissionRequestErrorListener() {
+                                @Override
+                                public void onError(DexterError error) {
+                                    Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .onSameThread()
+                            .check();
+                }
             }
-        });*/
+        });
 
         ivHoroscopeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dexter.withActivity(PersonalDetailsActivity.this)
-                        .withPermissions(
-                                Manifest.permission.CAMERA,
-                                Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        .withListener(new MultiplePermissionsListener() {
-                            @Override
-                            public void onPermissionsChecked(MultiplePermissionsReport report) {
-                                // check if all permissions are granted
-                                if (report.areAllPermissionsGranted()) {
-                                    // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
-                                    camera.selectImage(ivHoroscopeImage, 1);
+                if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    Dexter.withActivity(PersonalDetailsActivity.this)
+                            .withPermissions(
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.READ_MEDIA_VIDEO,
+                                    Manifest.permission.READ_MEDIA_IMAGES,
+                                    Manifest.permission.READ_MEDIA_AUDIO)
+                                    /*Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)*/
+                            .withListener(new MultiplePermissionsListener() {
+                                @Override
+                                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                    // check if all permissions are granted
+                                    if (report.areAllPermissionsGranted()) {
+                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                        camera.selectImage(ivHoroscopeImage, 1);
+                                    }
+                                    // check for permanent denial of any permission
+                                    if (report.isAnyPermissionPermanentlyDenied()) {
+                                        // show alert dialog navigating to Settings
+                                        showSettingsDialog();
+                                    }
                                 }
-                                // check for permanent denial of any permission
-                                if (report.isAnyPermissionPermanentlyDenied()) {
-                                    // show alert dialog navigating to Settings
-                                    showSettingsDialog();
-                                }
-                            }
 
 
-                            @Override
-                            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                                token.continuePermissionRequest();
-                            }
-                        }).
-                        withErrorListener(new PermissionRequestErrorListener() {
-                            @Override
-                            public void onError(DexterError error) {
-                                Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .onSameThread()
-                        .check();
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).
+                            withErrorListener(new PermissionRequestErrorListener() {
+                                @Override
+                                public void onError(DexterError error) {
+                                    Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .onSameThread()
+                            .check();
+                }
+                else{
+                    Dexter.withActivity(PersonalDetailsActivity.this)
+                            .withPermissions(
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            .withListener(new MultiplePermissionsListener() {
+                                @Override
+                                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                    // check if all permissions are granted
+                                    if (report.areAllPermissionsGranted()) {
+                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                        camera.selectImage(ivHoroscopeImage, 1);
+                                    }
+                                    // check for permanent denial of any permission
+                                    if (report.isAnyPermissionPermanentlyDenied()) {
+                                        // show alert dialog navigating to Settings
+                                        showSettingsDialog();
+                                    }
+                                }
+
+
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).
+                            withErrorListener(new PermissionRequestErrorListener() {
+                                @Override
+                                public void onError(DexterError error) {
+                                    Toast.makeText(PersonalDetailsActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .onSameThread()
+                            .check();
+                }
             }
         });
 

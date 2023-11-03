@@ -1,6 +1,9 @@
 package com.whtech.anuroopjodi.Adapter;
 
+import static android.os.Build.VERSION.SDK_INT;
+
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -10,6 +13,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -72,7 +76,7 @@ public class VendorListAdapter extends RecyclerView.Adapter<VendorListAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         pos = position;
         //VendorsObject listItem = filterList.get(position);
@@ -125,44 +129,89 @@ public class VendorListAdapter extends RecyclerView.Adapter<VendorListAdapter.My
             @Override
             public void onClick(View view) {
 
+                if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
 
-                Dexter.withActivity((Activity) mContext)
-                        .withPermissions(Manifest.permission.CALL_PHONE,
-                                Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        .withListener(new MultiplePermissionsListener() {
-                            @Override
-                            public void onPermissionsChecked(MultiplePermissionsReport report) {
-                                // check if all permissions are granted
-                                if (report.areAllPermissionsGranted()) {
-                                    // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
-                                    String number = imageModelArrayList.get(position).contact;
-                                    Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                                    //callIntent.setData(Uri.parse("tel:" + number));
-                                    callIntent.setData(Uri.parse("tel:" + number));
-                                    mContext.startActivity(callIntent);
+                    Dexter.withActivity((Activity) mContext)
+                            .withPermissions(Manifest.permission.CALL_PHONE,
+                                    Manifest.permission.READ_MEDIA_VIDEO,
+                                    Manifest.permission.READ_MEDIA_IMAGES,
+                                    Manifest.permission.READ_MEDIA_AUDIO)
+                                    /*Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)*/
+                            .withListener(new MultiplePermissionsListener() {
+                                @Override
+                                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                    // check if all permissions are granted
+                                    if (report.areAllPermissionsGranted()) {
+                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                        String number = imageModelArrayList.get(position).contact;
+                                        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                                        //callIntent.setData(Uri.parse("tel:" + number));
+                                        callIntent.setData(Uri.parse("tel:" + number));
+                                        mContext.startActivity(callIntent);
+                                    }
+                                    // check for permanent denial of any permission
+                                    if (report.isAnyPermissionPermanentlyDenied()) {
+                                        // show alert dialog navigating to Settings
+                                        showSettingsDialog();
+                                    }
                                 }
-                                // check for permanent denial of any permission
-                                if (report.isAnyPermissionPermanentlyDenied()) {
-                                    // show alert dialog navigating to Settings
-                                    showSettingsDialog();
+
+
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                    token.continuePermissionRequest();
                                 }
-                            }
+                            }).
+                            withErrorListener(new PermissionRequestErrorListener() {
+                                @Override
+                                public void onError(DexterError error) {
+                                    Toast.makeText(mContext, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .onSameThread()
+                            .check();
+                }
+                else {
+                    Dexter.withActivity((Activity) mContext)
+                            .withPermissions(Manifest.permission.CALL_PHONE,
+                                    Manifest.permission.READ_MEDIA_VIDEO,
+                                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            .withListener(new MultiplePermissionsListener() {
+                                @Override
+                                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                    // check if all permissions are granted
+                                    if (report.areAllPermissionsGranted()) {
+                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                        String number = imageModelArrayList.get(position).contact;
+                                        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                                        //callIntent.setData(Uri.parse("tel:" + number));
+                                        callIntent.setData(Uri.parse("tel:" + number));
+                                        mContext.startActivity(callIntent);
+                                    }
+                                    // check for permanent denial of any permission
+                                    if (report.isAnyPermissionPermanentlyDenied()) {
+                                        // show alert dialog navigating to Settings
+                                        showSettingsDialog();
+                                    }
+                                }
 
 
-                            @Override
-                            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                                token.continuePermissionRequest();
-                            }
-                        }).
-                        withErrorListener(new PermissionRequestErrorListener() {
-                            @Override
-                            public void onError(DexterError error) {
-                                Toast.makeText(mContext, "Error occurred! ", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .onSameThread()
-                        .check();
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).
+                            withErrorListener(new PermissionRequestErrorListener() {
+                                @Override
+                                public void onError(DexterError error) {
+                                    Toast.makeText(mContext, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .onSameThread()
+                            .check();
+                }
             }
         });
 
