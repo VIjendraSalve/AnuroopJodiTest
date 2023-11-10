@@ -115,6 +115,14 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
     private ArrayAdapter<RashiObject> spinnerRashi_Adapter;
     private String strRashiId = "0", strRashi;
 
+
+    //Nakshatra Spinner
+    private ArrayList<NakshatraObject> nakshatraObjectArrayList;
+    private SearchableSpinner spinnerNakshatra;
+    private ArrayAdapter<NakshatraObject> spinnerNakshatra_Adapter;
+    private String strNakshatraiId = "0", strNakshatra;
+
+
     //Blood Group Spinner
     private ArrayList<BloodGroupObject> bloodGroupObjectArrayList;
     private SearchableSpinner spinnerBloodGroup;
@@ -222,8 +230,9 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
         spinnerHeight = findViewById(R.id.spinnerHeight);
         spinnerComplexion = findViewById(R.id.spinnerComplexion);
         spinnerRashi = findViewById(R.id.spinnerRashi);
+        spinnerNakshatra = findViewById(R.id.spinnerNakshatra);
         etWeight = findViewById(R.id.etWeight);
-        etNakshatra = findViewById(R.id.etNakshatra);
+        //etNakshatra = findViewById(R.id.etNakshatra);
         etGan = findViewById(R.id.etGan);
         etCharan = findViewById(R.id.etCharan);
         etGotra = findViewById(R.id.etGotra);
@@ -250,30 +259,34 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
                     if (strHeightId != null && !strHeightId.isEmpty() && !strHeightId.equals("null") && !strHeightId.equals("0")) {
                         if (strBloodGroupId != null && !strBloodGroupId.isEmpty() && !strBloodGroupId.equals("null") && !strBloodGroupId.equals("0")) {
                             if (strRashiId != null && !strRashiId.isEmpty() && !strRashiId.equals("null") && !strRashiId.equals("0")) {
-                                if (strManglik != null && !strManglik.isEmpty() && !strManglik.equals("null") && !strManglik.equals("")) {
-                                    if (strDiet != null && !strDiet.isEmpty() && !strDiet.equals("null") && !strDiet.equals("")) {
-                                        if (strSmoking != null && !strSmoking.isEmpty() && !strSmoking.equals("null") && !strSmoking.equals("0")) {
-                                            if (strDrinking != null && !strDrinking.isEmpty() && !strDrinking.equals("null") && !strDrinking.equals("0")) {
-                                                if (isValid()) {
-                                                    if (connectionDetector.isConnectionAvailable()) {
-                                                        webcallPersonalDetails();
+                                if(strNakshatraiId!=null && !strNakshatraiId.isEmpty() && !strNakshatraiId.equals(null) && !strNakshatraiId.equals("0")) {
+                                    if (strManglik != null && !strManglik.isEmpty() && !strManglik.equals("null") && !strManglik.equals("")) {
+                                        if (strDiet != null && !strDiet.isEmpty() && !strDiet.equals("null") && !strDiet.equals("")) {
+                                            if (strSmoking != null && !strSmoking.isEmpty() && !strSmoking.equals("null") && !strSmoking.equals("0")) {
+                                                if (strDrinking != null && !strDrinking.isEmpty() && !strDrinking.equals("null") && !strDrinking.equals("0")) {
+                                                    if (isValid()) {
+                                                        if (connectionDetector.isConnectionAvailable()) {
+                                                            webcallPersonalDetails();
+                                                        } else {
+                                                            Helper_Method.toaster_long(_act, getResources().getString(R.string.internet_connection_required));
+                                                        }
                                                     } else {
-                                                        Helper_Method.toaster_long(_act, getResources().getString(R.string.internet_connection_required));
+                                                        Helper_Method.toaster(_act, "Check and fill all the fields");
                                                     }
                                                 } else {
-                                                    Helper_Method.toaster(_act, "Check and fill all the fields");
+                                                    Helper_Method.toaster(_act, "Select drinking or not");
                                                 }
                                             } else {
-                                                Helper_Method.toaster(_act, "Select drinking or not");
+                                                Helper_Method.toaster(_act, "Select smoking or not");
                                             }
                                         } else {
-                                            Helper_Method.toaster(_act, "Select smoking or not");
+                                            Helper_Method.toaster(_act, "Select diet");
                                         }
                                     } else {
-                                        Helper_Method.toaster(_act, "Select diet");
+                                        Helper_Method.toaster(_act, "Select Manglik or not");
                                     }
-                                } else {
-                                    Helper_Method.toaster(_act, "Select Manglik or not");
+                                }else {
+                                    Helper_Method.toaster(_act, "Select Nakshatra");
                                 }
                             } else {
                                 Helper_Method.toaster(_act, "Select Rashi");
@@ -375,7 +388,7 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
                                     // check if all permissions are granted
                                     if (report.areAllPermissionsGranted()) {
                                         // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
-                                        camera.selectImage(ivProfileImage, 2);
+                                        camera.selectImage(ivAdharImg1, 2);
                                     }
                                     // check for permanent denial of any permission
                                     if (report.isAnyPermissionPermanentlyDenied()) {
@@ -456,7 +469,7 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
                                     // check if all permissions are granted
                                     if (report.areAllPermissionsGranted()) {
                                         // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
-                                        camera.selectImage(ivProfileImage, 2);
+                                        camera.selectImage(ivAdharImg2, 2);
                                     }
                                     // check for permanent denial of any permission
                                     if (report.isAnyPermissionPermanentlyDenied()) {
@@ -912,7 +925,7 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
     private void setValuesToUpdate() {
 
         etWeight.setText(SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.WEIGHT));
-        etNakshatra.setText(SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.NAKSHATRA));
+        //etNakshatra.setText(SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.NAKSHATRA));
         etGan.setText(SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.GAN));
         etCharan.setText(SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.CHARAN));
         etGotra.setText(SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.GOTRA));
@@ -924,6 +937,7 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
         strBloodGroup = SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.BLOOD);
         strManglik = SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.MANGLIK);
         strRashi = SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.RASHI);
+        strNakshatra = SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.NAKSHATRA);
         strDiet = SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.LIFE_STYLE);
         strSmoking = SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.SMOKING);
         strDrinking = SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.DRINKING);
@@ -1006,7 +1020,8 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
                 etWeight.getText().toString().trim(),
                 etComplexion.getText().toString().trim(),
                 strBloodGroup,
-                etNakshatra.getText().toString().trim(),
+                //etNakshatra.getText().toString().trim(),
+                strNakshatra,
                 strspinnerGan,
                 strspinnerCharan,
                 etGotra.getText().toString().trim(),
@@ -1188,12 +1203,12 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
             etComplexion.setError(IErrors.EMPTY);
             return false;
         }
-        if (validations.isBlank(etNakshatra)) {
+        /*if (validations.isBlank(etNakshatra)) {
             Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
             etNakshatra.startAnimation(shake);
             etNakshatra.setError(IErrors.EMPTY);
             return false;
-        }
+        }*/
         /*if (validations.isBlank(etGan)) {
             Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
             etGan.startAnimation(shake);
@@ -1447,6 +1462,110 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
         });
     }
 
+    //FOR NAKSHATRA
+    private void webcallNakshatra(){
+        Interface api = IUrls.getRetrofit(IUrls.BASE_URL).create(Interface.class);
+        Call<ResponseBody> result = api.GETNakshatra();
+
+        result.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                String output="";
+                try {
+                    nakshatraObjectArrayList = new ArrayList<>();
+                    nakshatraObjectArrayList.clear();
+                    output=response.body().string();
+                    Log.d("nakshatraName", "onResponse: "+output);
+
+
+
+                    try {
+                        JSONObject jsonObject=new JSONObject(output);
+                        String stringCode = jsonObject.getString("result");
+
+                        if (stringCode.equalsIgnoreCase("true")) {
+                            String nakshatraName;
+
+                            JSONArray jsonArray = jsonObject.getJSONArray("nakshatra_list");
+                            nakshatraObjectArrayList.add(new NakshatraObject("0", getResources().getString(R.string.lbl_nakshtra)));
+
+                            for (int index = 0; index < jsonArray.length(); index++) {
+                                try {
+                                    nakshatraObjectArrayList.add(new NakshatraObject(jsonArray.getJSONObject(index)));
+
+                                } catch (JSONException e) {
+
+                                    e.printStackTrace();
+                                    Helper_Method.dismissProgessBar();
+
+                                }
+                            }
+                            if (nakshatraObjectArrayList.size() == 0) {}
+                            else {
+                                spinnerNakshatra.setTitle(getResources().getString(R.string.lbl_your_rashi_hint));
+                                spinnerNakshatra_Adapter = new ArrayAdapter<NakshatraObject>(_act, android.R.layout.simple_spinner_item, nakshatraObjectArrayList);
+                                spinnerNakshatra_Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                spinnerNakshatra.setAdapter(spinnerNakshatra_Adapter);
+
+                                spinnerNakshatra.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                        // On selecting a spinner item
+                                        String item = adapterView.getItemAtPosition(i).toString();
+                                        //showToast(siteTaskCategoryObjArrayList.get(i).task);
+                                        //category = categoryList.get(i).getCategoryID();
+                                        strNakshatraiId = nakshatraObjectArrayList.get(i).id;
+                                        strNakshatra = nakshatraObjectArrayList.get(i).name;
+                                    }
+
+                                    public void onNothingSelected(AdapterView<?> adapterView) {
+                                        return;
+                                    }
+                                });
+
+
+                                if (SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.NAKSHATRA) != null &&
+                                        !SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.NAKSHATRA).isEmpty() &&
+                                        !SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.NAKSHATRA).equals("null") &&
+                                        !SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.NAKSHATRA).equals("")) {
+                                    for (int k = 0; k < nakshatraObjectArrayList.size(); k++) {
+                                        if (nakshatraObjectArrayList.get(k).getName().equals
+                                                (SharedPref.getPrefs(PersonalDetailsActivity.this, IConstant.NAKSHATRA))) {
+                                            spinnerNakshatra.setSelection(k);
+                                        }
+                                    }
+                                } else {
+
+                                }
+                            }
+                        }
+                        else {
+                            nakshatraObjectArrayList.clear();
+                            spinnerNakshatra.setTitle(getResources().getString(R.string.lbl_your_rashi_hint));
+                            spinnerNakshatra_Adapter = new ArrayAdapter<NakshatraObject>(_act, android.R.layout.simple_spinner_item, nakshatraObjectArrayList);
+                            spinnerNakshatra_Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            spinnerNakshatra.setAdapter(spinnerNakshatra_Adapter);
+                            // Helper_Method.toaster(_act, stringMsg);
+                            // scheduleDismiss();
+
+
+                        }
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+    }
+
+
     private void webcallRashi() {
 
         //Helper_Method.showProgressBar(_act, getResources().getString(R.string.lbl_loading));
@@ -1548,6 +1667,7 @@ public class PersonalDetailsActivity extends BaseActivity implements Camera.Asyn
                 } finally {
                     Helper_Method.dismissProgessBar();
                     //Intercaste();
+                    webcallNakshatra();
                 }
             }
 

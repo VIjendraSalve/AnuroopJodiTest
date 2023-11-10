@@ -29,7 +29,7 @@ public class BaseActivityForPackage extends AppCompatActivity {
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
                                 .setDefaultFontPath("font/Lato-Regular.ttf")
-                                .setFontAttrId(R.attr.fontPath)
+                                //.setFontAttrId(R.attr.fontPath)
                                 .build()))
                 .build());
     }

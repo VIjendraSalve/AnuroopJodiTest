@@ -44,6 +44,9 @@ public interface Interface {
     @GET(IUrls.URL_RASHI)
     Call<ResponseBody> GETRashi();
 
+    @GET(IUrls.URL_NAKSHATRA)
+    Call<ResponseBody> GETNakshatra();
+
     @GET(IUrls.URL_EDUCATION)
     Call<ResponseBody> GETEducation();
 

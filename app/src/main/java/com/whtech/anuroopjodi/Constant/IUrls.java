@@ -28,6 +28,7 @@ public class IUrls {
     public static final String URL_HEIGHT = "app_height_master";
     public static final String URL_COMPLEXION = "app_complexion_list";
     public static final String URL_RASHI = "app_rashi_master";
+    public static final String URL_NAKSHATRA = "app_nakshatra_list";
     public static final String URL_EDUCATION = "app_education_master";
     public static final String URL_PROFESSION = "app_occupation_master";
     public static final String URL_STEP_ONE_BASIC_DETAILS = "app_basic_details_step_1";
