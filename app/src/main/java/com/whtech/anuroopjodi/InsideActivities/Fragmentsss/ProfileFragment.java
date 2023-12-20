@@ -38,8 +38,10 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.whtech.anuroopjodi.Constant.IConstant;
 import com.whtech.anuroopjodi.Helper.ConnectionDetector;
 import com.whtech.anuroopjodi.Helper.Helper_Method;
+import com.whtech.anuroopjodi.Helper.PermissionManager;
 import com.whtech.anuroopjodi.Helper.SharedPref;
 import com.whtech.anuroopjodi.Helper.Validations;
+import com.whtech.anuroopjodi.InitialActivities.ProfileActivity;
 import com.whtech.anuroopjodi.InitialActivities.RegistrationSteps.BasicDetailsAddAndEditActivity;
 import com.whtech.anuroopjodi.InitialActivities.RegistrationSteps.FamilyDetailsActivity;
 import com.whtech.anuroopjodi.InitialActivities.RegistrationSteps.PersonalDetailsActivity;
@@ -304,14 +306,14 @@ public class ProfileFragment extends Fragment implements Camera.AsyncResponse {
             @Override
             public void onClick(View view) {
                 if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    Dexter.withActivity(getActivity())
+                    /*Dexter.withActivity(getActivity())
                             .withPermissions(
                                     Manifest.permission.CAMERA,
                                     Manifest.permission.READ_MEDIA_VIDEO,
                                     Manifest.permission.READ_MEDIA_IMAGES,
                                     Manifest.permission.READ_MEDIA_AUDIO)
-                                    /*Manifest.permission.READ_EXTERNAL_STORAGE,
-                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)*/
+                                    *//*Manifest.permission.READ_EXTERNAL_STORAGE,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)*//*
                             .withListener(new MultiplePermissionsListener() {
                                 @Override
                                 public void onPermissionsChecked(MultiplePermissionsReport report) {
@@ -340,43 +342,33 @@ public class ProfileFragment extends Fragment implements Camera.AsyncResponse {
                                 }
                             })
                             .onSameThread()
-                            .check();
+                            .check();*/
+
+                    PermissionManager.requestPermissions(getActivity(), PermissionManager.PERMISSION_CAMERA_AND_MEDIA_TERAMASU, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            camera.selectImage(ivAdharImg1, 0);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            //Toast.makeText(_act, "Denied", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
                 }
                 else{
-                    Dexter.withActivity(getActivity())
-                            .withPermissions(
-                                    Manifest.permission.CAMERA,
-                                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            .withListener(new MultiplePermissionsListener() {
-                                @Override
-                                public void onPermissionsChecked(MultiplePermissionsReport report) {
-                                    // check if all permissions are granted
-                                    if (report.areAllPermissionsGranted()) {
-                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
-                                        camera.selectImage(ivAdharImg1, 0);
-                                    }
-                                    // check for permanent denial of any permission
-                                    if (report.isAnyPermissionPermanentlyDenied()) {
-                                        // show alert dialog navigating to Settings
-                                        showSettingsDialog();
-                                    }
-                                }
+                    PermissionManager.requestPermissions(getActivity(), PermissionManager.PERMISSION_CAMERA_ONLY_AV_10, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            camera.selectImage(ivAdharImg1, 0);
+                        }
 
-
-                                @Override
-                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                                    token.continuePermissionRequest();
-                                }
-                            }).
-                            withErrorListener(new PermissionRequestErrorListener() {
-                                @Override
-                                public void onError(DexterError error) {
-                                    Toast.makeText(getContext(), "Error occurred! ", Toast.LENGTH_SHORT).show();
-                                }
-                            })
-                            .onSameThread()
-                            .check();
+                        @Override
+                        public void onPermissionDenied() {
+                            //Toast.makeText(_act, "Denied", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
         });

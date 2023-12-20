@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
 
-            <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+            <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/navigationBottom"
                 style="@style/bnve_white_bg"
                 android:layout_alignParentBottom="true"

@@ -84,7 +84,7 @@ public class BasicDetailsAddAndEditActivity extends BaseActivity implements Time
     private ArrayList<SubcasteObject> subcasteObjectArrayList;
     private SearchableSpinner spinnerSubcastelist;
     private ArrayAdapter<SubcasteObject> spinnerSubcastelist_Adapter;
-    private String strSubCasteId = "0", strSubCaste;
+    private String strSubCasteId = "-1", strSubCaste;
 
     //Physical Status Types
     private ArrayList<PhysicalStatusObj> physicalStatusObjArrayList;
@@ -235,7 +235,7 @@ public class BasicDetailsAddAndEditActivity extends BaseActivity implements Time
                     if (strBirthTime != null && !strBirthTime.isEmpty() && !strBirthTime.equals("null") && !strBirthTime.equals("Select Birth Time")) {
                         if (strBirthPlaceId != null && !strBirthPlaceId.isEmpty() && !strBirthPlaceId.equals("null") && !strBirthPlaceId.equals("0")) {
                             if (strMotherTongueId != null && !strMotherTongueId.isEmpty() && !strMotherTongueId.equals("null") && !strMotherTongueId.equals("0")) {
-                                if (strSubCasteId != null && !strSubCasteId.isEmpty() && !strSubCasteId.equals("null") && !strSubCasteId.equals("0")) {
+                                /*if (strSubCasteId != null && !strSubCasteId.isEmpty() && !strSubCasteId.equals("null") && !strSubCasteId.equals("0")) {*/
                                     if (strPhysicalStatus != null && !strPhysicalStatus.isEmpty() && !strPhysicalStatus.equals("null") && !strPhysicalStatus.equals("0")) {
                                         if (strStateId != null && !strStateId.isEmpty() && !strStateId.equals("null") && !strStateId.equals("0")) {
                                             if (strCityId != null && !strCityId.isEmpty() && !strCityId.equals("null") && !strCityId.equals("0")) {
@@ -255,9 +255,9 @@ public class BasicDetailsAddAndEditActivity extends BaseActivity implements Time
                                     } else {
                                         Helper_Method.toaster(_act, "Select Physical Status");
                                     }
-                                } else {
+                                /*} else {
                                     Helper_Method.toaster(_act, "Select Sub Caste");
-                                }
+                                }*/
                             } else {
                                 Helper_Method.toaster(_act, "Select Mother Tongue");
                             }
@@ -306,7 +306,7 @@ public class BasicDetailsAddAndEditActivity extends BaseActivity implements Time
         strBirthPlace = SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.BIRTH_PLACE);
         strBirthTime = SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.BIRTH_TIME);
         strMotherTongueId = SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.LANGUAGE_NAME);
-        strSubCasteId = SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.SUBCASTE);
+//        strSubCasteId = SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.SUBCASTE);
         strPhysicalStatus = SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.DISABILITY);
         strStateId = SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.STATE_ID);
         strCityId = SharedPref.getPrefs(BasicDetailsAddAndEditActivity.this, IConstant.CITY_ID);
@@ -330,6 +330,8 @@ public class BasicDetailsAddAndEditActivity extends BaseActivity implements Time
         Log.d("SendingData", "strCityId: " + strCityId);
         Log.d("SendingData", "strPhysicalStatus: " + strPhysicalStatus);
         Log.d("SendingData", "etExpectation: " + etExpectation.getText().toString());
+        Log.d("SendingData", "subcaste: " + strSubCasteId);
+        Log.d("SendingData", "caste: " + strCasteId);
         Helper_Method.showProgressBar(_act, "Updating Basic Details...");
         Interface api = IUrls.getRetrofit(IUrls.BASE_URL).create(Interface.class);
         Call<ResponseBody> result = api.POSTBasicDetails(
@@ -1280,7 +1282,7 @@ public class BasicDetailsAddAndEditActivity extends BaseActivity implements Time
 
         rvPhysicalStatus = findViewById(R.id.rvPhysicalStatus);
         physicalStatusObjArrayList = new ArrayList<>();
-        physicalStatusObjArrayList.add(new PhysicalStatusObj("No", "Normal", false));
+        physicalStatusObjArrayList.add(new PhysicalStatusObj("No", "Normal", true));
         physicalStatusObjArrayList.add(new PhysicalStatusObj("Yes", "Physical Challenged", false));
 
         if (physicalStatusObjArrayList.size() == 0) {

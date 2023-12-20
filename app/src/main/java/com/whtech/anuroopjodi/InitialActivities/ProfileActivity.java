@@ -42,6 +42,7 @@ import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.DexterError;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
@@ -54,6 +55,7 @@ import com.whtech.anuroopjodi.Constant.IUrls;
 import com.whtech.anuroopjodi.Constant.Interface;
 import com.whtech.anuroopjodi.Helper.ConnectionDetector;
 import com.whtech.anuroopjodi.Helper.Helper_Method;
+import com.whtech.anuroopjodi.Helper.PermissionManager;
 import com.whtech.anuroopjodi.Helper.RecyclerItemClickListener;
 import com.whtech.anuroopjodi.Helper.SharedPref;
 import com.whtech.anuroopjodi.Helper.Validations;
@@ -288,6 +290,7 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
 
         tvMiddleName.setText(SharedPref.getPrefs(_act, IConstant.USER_MIDDLE_NAME));
         tvNativePlace.setText(SharedPref.getPrefs(_act, IConstant.NATIVE_PLACE));
+        Log.d("Hche", "init: "+SharedPref.getPrefs(_act, IConstant.WORKING_CITY));
         tvCurrentWorkingCity.setText(SharedPref.getPrefs(_act, IConstant.WORKING_CITY));
         tvIntercast.setText(SharedPref.getPrefs(_act, IConstant.INTERCASTE));
         tvDevak.setText(SharedPref.getPrefs(_act, IConstant.DEVAK));
@@ -323,7 +326,7 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
         tvHeight.setText(SharedPref.getPrefs(_act, IConstant.HEIGHT_NAME));
         tvMotherTougue.setText(SharedPref.getPrefs(_act, IConstant.LANGUAGE_NAME));
 
-        tvCaste.setText(SharedPref.getPrefs(_act, IConstant.SUBCASTE));
+        tvCaste.setText(SharedPref.getPrefs(_act, IConstant.CASTE_NAME));
         tvGotra.setText(SharedPref.getPrefs(_act, IConstant.GOTRA));
         tvGan.setText(SharedPref.getPrefs(_act, IConstant.GAN));
         tvNakshatra.setText(SharedPref.getPrefs(_act, IConstant.NAKSHATRA));
@@ -529,7 +532,7 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
         btn_add_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dexter.withActivity(ProfileActivity.this)
+                /*Dexter.withActivity(ProfileActivity.this)
                         .withPermissions(
                                 Manifest.permission.CAMERA,
                                 Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -562,7 +565,36 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
                             }
                         })
                         .onSameThread()
-                        .check();
+                        .check();*/
+
+
+                if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_AND_MEDIA_TERAMASU, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            camera.selectImage(civ_add_photo, 5);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            //Toast.makeText(_act, "Denied", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else{
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_ONLY_AV_10, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            // Code to execute when permissions are granted
+                            camera.selectImage(civ_add_photo, 5);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            // Code to execute when permissions are denied
+                        }
+                    });
+                }
             }
         });
 
@@ -571,79 +603,31 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
             public void onClick(View view) {
                 SharedPref.setPrefs(ProfileActivity.this, IConstant.FRONTBACK, "front");
                 if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    Dexter.withActivity(ProfileActivity.this)
-                            .withPermissions(
-                                    Manifest.permission.READ_MEDIA_VIDEO,
-                                    Manifest.permission.READ_MEDIA_IMAGES,
-                                    Manifest.permission.READ_MEDIA_AUDIO,
-                                    Manifest.permission.CAMERA)
-                                    /*Manifest.permission.READ_EXTERNAL_STORAGE,
-                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)*/
-                            .withListener(new MultiplePermissionsListener() {
-                                @Override
-                                public void onPermissionsChecked(MultiplePermissionsReport report) {
-                                    // check if all permissions are granted
-                                    if (report.areAllPermissionsGranted()) {
-                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
-                                        camera.selectImage(ivAdharImg1, 0);
-                                    }
-                                    // check for permanent denial of any permission
-                                    if (report.isAnyPermissionPermanentlyDenied()) {
-                                        // show alert dialog navigating to Settings
-                                        showSettingsDialog();
-                                    }
-                                }
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_AND_MEDIA_TERAMASU, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            camera.selectImage(ivAdharImg1, 0);
+                        }
 
-
-                                @Override
-                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                                    token.continuePermissionRequest();
-                                }
-                            }).
-                            withErrorListener(new PermissionRequestErrorListener() {
-                                @Override
-                                public void onError(DexterError error) {
-                                    Toast.makeText(ProfileActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
-                                }
-                            })
-                            .onSameThread()
-                            .check();
+                        @Override
+                        public void onPermissionDenied() {
+                            //Toast.makeText(_act, "Denied", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
                 else{
-                    Dexter.withActivity(ProfileActivity.this)
-                            .withPermissions(
-                                    Manifest.permission.CAMERA,
-                                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            .withListener(new MultiplePermissionsListener() {
-                                @Override
-                                public void onPermissionsChecked(MultiplePermissionsReport report) {
-                                    // check if all permissions are granted
-                                    if (report.areAllPermissionsGranted()) {
-                                        // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
-                                        camera.selectImage(ivAdharImg1, 0);
-                                    }
-                                    // check for permanent denial of any permission
-                                    if (report.isAnyPermissionPermanentlyDenied()) {
-                                        // show alert dialog navigating to Settings
-                                        showSettingsDialog();
-                                    }
-                                }
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_ONLY_AV_10, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            // Code to execute when permissions are granted
+                            camera.selectImage(ivAdharImg1, 0);
+                        }
 
-
-                                @Override
-                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                                    token.continuePermissionRequest();
-                                }
-                            }).
-                            withErrorListener(new PermissionRequestErrorListener() {
-                                @Override
-                                public void onError(DexterError error) {
-                                    Toast.makeText(ProfileActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
-                                }
-                            })
-                            .onSameThread()
-                            .check();
+                        @Override
+                        public void onPermissionDenied() {
+                            // Code to execute when permissions are denied
+                        }
+                    });
                 }
             }
         });
@@ -652,7 +636,7 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
             @Override
             public void onClick(View view) {
                 SharedPref.setPrefs(ProfileActivity.this, IConstant.FRONTBACK, "back");
-                Dexter.withActivity(ProfileActivity.this)
+                /*Dexter.withActivity(ProfileActivity.this)
                         .withPermissions(
                                 Manifest.permission.CAMERA,
                                 Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -664,6 +648,10 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
                                 if (report.areAllPermissionsGranted()) {
                                     // Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
                                     camera.selectImage(ivAdharImg2, 0);
+                                }else{
+                                    for(PermissionDeniedResponse curr : report.getDeniedPermissionResponses()){
+                                        Log.d("permission", "PERMISSION 2 : " + curr.getPermissionName());
+                                    }
                                 }
                                 // check for permanent denial of any permission
                                 if (report.isAnyPermissionPermanentlyDenied()) {
@@ -685,7 +673,35 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
                             }
                         })
                         .onSameThread()
-                        .check();
+                        .check();*/
+
+                if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_AND_MEDIA_TERAMASU, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            camera.selectImage(ivAdharImg2, 0);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            //Toast.makeText(_act, "Denied", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else{
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_ONLY_AV_10, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            // Code to execute when permissions are granted
+                            camera.selectImage(ivAdharImg2, 0);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            // Code to execute when permissions are denied
+                        }
+                    });
+                }
             }
         });
 
@@ -693,7 +709,7 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
             @Override
             public void onClick(View view) {
                 SharedPref.setPrefs(ProfileActivity.this, IConstant.FRONTBACK, "back");
-                Dexter.withActivity(ProfileActivity.this)
+                /*Dexter.withActivity(ProfileActivity.this)
                         .withPermissions(
                                 Manifest.permission.CAMERA,
                                 Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -726,7 +742,36 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
                             }
                         })
                         .onSameThread()
-                        .check();
+                        .check();*/
+
+                if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_AND_MEDIA_TERAMASU, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            camera.selectImage(ivProfileImage, 2);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            //Toast.makeText(_act, "Denied", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else{
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_ONLY_AV_10, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            // Code to execute when permissions are granted
+                            camera.selectImage(ivProfileImage, 2);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            // Code to execute when permissions are denied
+                        }
+                    });
+                }
+
             }
         });
 
@@ -736,7 +781,7 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
             @Override
             public void onClick(View view) {
                 SharedPref.setPrefs(ProfileActivity.this, IConstant.FRONTBACK, "back");
-                Dexter.withActivity(ProfileActivity.this)
+                /*Dexter.withActivity(ProfileActivity.this)
                         .withPermissions(
                                 Manifest.permission.CAMERA,
                                 Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -769,14 +814,43 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
                             }
                         })
                         .onSameThread()
-                        .check();
+                        .check();*/
+
+                if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_AND_MEDIA_TERAMASU, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            camera.selectImage(ivProfileImage, 2);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            //Toast.makeText(_act, "Denied", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else{
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_ONLY_AV_10, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            // Code to execute when permissions are granted
+                            camera.selectImage(ivProfileImage, 2);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            // Code to execute when permissions are denied
+                        }
+                    });
+                }
+
             }
         });
 
         ivHoroscopeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dexter.withActivity(ProfileActivity.this)
+                /*Dexter.withActivity(ProfileActivity.this)
                         .withPermissions(
                                 Manifest.permission.CAMERA,
                                 Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -809,7 +883,36 @@ public class ProfileActivity extends BaseActivity implements Camera.AsyncRespons
                             }
                         })
                         .onSameThread()
-                        .check();
+                        .check();*/
+
+                if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_AND_MEDIA_TERAMASU, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            camera.selectImage(ivHoroscopeImage, 1);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            //Toast.makeText(_act, "Denied", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else{
+                    PermissionManager.requestPermissions(ProfileActivity.this, PermissionManager.PERMISSION_CAMERA_ONLY_AV_10, new PermissionManager.PermissionCallback() {
+                        @Override
+                        public void onPermissionGranted() {
+                            // Code to execute when permissions are granted
+                            camera.selectImage(ivHoroscopeImage, 1);
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            // Code to execute when permissions are denied
+                        }
+                    });
+                }
+
             }
         });
 

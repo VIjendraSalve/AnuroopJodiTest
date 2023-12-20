@@ -742,7 +742,7 @@ public class OthersProfileActivity extends BaseActivity {
                                 tvExpectation.setText(listProfileObjects.get(0).expectaion);
 
                                 tvHeight.setText(listProfileObjects.get(0).user_height);
-                                tvCaste.setText(listProfileObjects.get(0).subCast);
+                                tvCaste.setText(listProfileObjects.get(0).Cast);
                                 tvGotra.setText(listProfileObjects.get(0).gotra);
                                 tvGan.setText(listProfileObjects.get(0).gan);
                                 tvNakshatra.setText(listProfileObjects.get(0).nakshatra);

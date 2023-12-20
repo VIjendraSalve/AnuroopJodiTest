@@ -44,6 +44,26 @@ public class ListProfileObject implements Parcelable {
     public String payment;
     public String entryDate;
     public String subCast;
+
+    public String getCast() {
+        return Cast;
+    }
+
+    public void setCast(String cast) {
+        Cast = cast;
+    }
+
+    public String Cast;
+
+    public String getCaste_name() {
+        return Caste_name;
+    }
+
+    public void setCaste_name(String caste_name) {
+        Caste_name = caste_name;
+    }
+
+    public String Caste_name;
     public String income;
     public String physique;
     public String occupation;
@@ -153,6 +173,8 @@ public class ListProfileObject implements Parcelable {
             this.payment = object.getString("payment");
             this.entryDate = object.getString("entryDate");
             this.subCast = object.getString("subCast");
+            this.Cast = object.getString("cast");
+            this.Caste_name = object.getString("caste_name");
             this.income = object.getString("income");
             this.physique = object.getString("physique");
             this.occupation = object.getString("occupation");
@@ -290,6 +312,8 @@ public class ListProfileObject implements Parcelable {
         payment = in.readString();
         entryDate = in.readString();
         subCast = in.readString();
+        Cast = in.readString();
+        Caste_name = in.readString();
         income = in.readString();
         physique = in.readString();
         occupation = in.readString();
@@ -389,6 +413,8 @@ public class ListProfileObject implements Parcelable {
         dest.writeString(payment);
         dest.writeString(entryDate);
         dest.writeString(subCast);
+        dest.writeString(Cast);
+        dest.writeString(Caste_name);
         dest.writeString(income);
         dest.writeString(physique);
         dest.writeString(occupation);

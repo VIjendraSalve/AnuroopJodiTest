@@ -22,7 +22,6 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"
-        app:itemTextAppearance="@style/TextAppearance.AppCompat.Small"
         app:itemTextColor="@color/black"
         app:itemIconTint="@color/black"
         android:background="@color/white"/>

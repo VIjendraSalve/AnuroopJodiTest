@@ -1,5 +1,6 @@
 package com.whtech.anuroopjodi.Notification;
 
+import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -7,6 +8,7 @@ import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -25,8 +27,15 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 import com.whtech.anuroopjodi.Constant.IConstant;
 import com.whtech.anuroopjodi.Helper.SharedPref;
+import com.whtech.anuroopjodi.InitialActivities.RegistrationSteps.SignUpActivity;
 import com.whtech.anuroopjodi.InsideActivities.Activities.OthersProfileActivity;
 import com.whtech.anuroopjodi.InsideActivities.Vijendra.ChatDetailListActivity;
 import com.whtech.anuroopjodi.InsideActivities.Vijendra.MyRequestListActivity;
@@ -121,6 +130,57 @@ public class MyAndroidFirebaseMsgService extends FirebaseMessagingService {
            /* Log.d("Notification", "onMessageReceived: " + jsonObject.getString("other_profile_id"));
             Log.d("Notification", "onMessageReceived: " + jsonObject.getString("user_id"));
             Log.d("Notification", "onMessageReceived: " + jsonObject.getString("other_profile_name"));*/
+
+            /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                Dexter.withContext(MyAndroidFirebaseMsgService.this)
+                        .withPermission(Manifest.permission.POST_NOTIFICATIONS)
+                        .withListener(new PermissionListener() {
+                            @Override
+                            public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+
+                                try {
+                                    showNotification(
+                                            jsonObject.getString("title"),
+                                            jsonObject.getString("body"),
+                                            jsonObject.getString("image"),
+                                            jsonObject.getString("type"),
+                                            jsonObject.getString("user_id"),
+                                            other_profile_id,
+                                            user_id,
+                                            other_profile_name
+                                    );
+                                } catch (JSONException e) {
+                                    throw new RuntimeException(e);
+                                }
+
+                            }
+
+                            @Override
+                            public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+
+                            }
+
+                            @Override
+                            public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+
+                            }
+                        })
+                        .check();
+            }
+            else{
+
+                showNotification(
+                        jsonObject.getString("title"),
+                        jsonObject.getString("body"),
+                        jsonObject.getString("image"),
+                        jsonObject.getString("type"),
+                        jsonObject.getString("user_id"),
+                        other_profile_id,
+                        user_id,
+                        other_profile_name
+                );
+            }*/
+
             showNotification(
                     jsonObject.getString("title"),
                     jsonObject.getString("body"),

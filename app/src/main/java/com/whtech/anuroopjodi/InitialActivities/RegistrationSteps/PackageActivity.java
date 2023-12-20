@@ -355,6 +355,11 @@ public class PackageActivity extends BaseActivityForPackage {
                                                     startActivity(intent);
                                                     finish();*/
                                                     arg0.dismiss();
+                                                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                    intent.putExtra("EXIT", true);
+                                                    startActivity(intent);
+                                                    finish();
 
                                                 }
                                             }).create().show();

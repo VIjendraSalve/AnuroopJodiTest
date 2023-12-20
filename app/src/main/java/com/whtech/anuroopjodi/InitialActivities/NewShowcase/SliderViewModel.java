@@ -7,7 +7,7 @@ import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
 public class SliderViewModel extends ViewModel {
-    private MutableLiveData<Integer> mIndex = new MutableLiveData<>();
+   /* private MutableLiveData<Integer> mIndex = new MutableLiveData<>();
     private LiveData<Integer> mPagerIndex =
             Transformations.map(mIndex, new Function<Integer, Integer>() {
                 @Override
@@ -20,5 +20,5 @@ public class SliderViewModel extends ViewModel {
     }
     public LiveData<Integer> getText() {
         return mPagerIndex;
-    }
+    }*/
 }

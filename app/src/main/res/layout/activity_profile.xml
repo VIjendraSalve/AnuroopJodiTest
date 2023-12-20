@@ -2275,14 +2275,18 @@
             android:layout_margin="@dimen/margin_5"
             android:textColor="@color/white"
             android:textSize="14sp" />
+
         <TextView
             android:id="@+id/btn_add_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/margin_10"
-            android:layout_margin="@dimen/margin_5"
-            android:background="@drawable/round_green_button"
+            android:layout_marginStart="@dimen/margin_5"
+            android:layout_marginTop="@dimen/margin_5"
+            android:layout_marginEnd="@dimen/margin_5"
+            android:layout_marginBottom="@dimen/margin_5"
             android:layout_toRightOf="@+id/btnUpdatePackage"
+            android:background="@drawable/round_green_button"
+            android:padding="@dimen/margin_10"
             android:text="Upload your photos"
             android:textColor="@color/white" />
     </RelativeLayout>

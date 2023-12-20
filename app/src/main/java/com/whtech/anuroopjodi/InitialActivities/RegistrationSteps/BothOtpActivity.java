@@ -6,17 +6,18 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mukesh.OnOtpCompletionListener;
-import com.mukesh.OtpView;
 import com.whtech.anuroopjodi.BaseActivity;
 import com.whtech.anuroopjodi.Constant.IConstant;
 import com.whtech.anuroopjodi.Constant.IUrls;
@@ -53,7 +54,8 @@ public class BothOtpActivity extends BaseActivity {
     private ImageView ivDailogClose;
     private String strRegMobile, strRegEmail, maskRegMobile;
     private String user_profile_path, maskRegEmail, strProfileId, strActvity;
-    private OtpView otp_mail_otp, otp_mobile_otp;
+    /*private OtpView otp_mail_otp, otp_mobile_otp;*/
+    private EditText otp_mail_otp, otp_mobile_otp;
     private TextView tvResendOtp;
     private String otpMobile, otpEmail;
     private boolean flagOtpMobileComplete = false, flagOtpEmailComplete = false;
@@ -113,21 +115,67 @@ public class BothOtpActivity extends BaseActivity {
         tvMessageOtpTitle.setText(Html.fromHtml("An SMS with verification CODE has been send to your registered MOBILE NO " + mobile));
 
 
-        otp_mail_otp.setOtpCompletionListener(new OnOtpCompletionListener() {
+        /*otp_mail_otp.setOtpCompletionListener(new OnOtpCompletionListener() {
             @Override
             public void onOtpCompleted(String otp) {
                 Log.d("onOtpCompleted", otp);
                 otpEmail = otp;
                 //flagOtpEmailComplete = true;
             }
+        });*/
+
+
+        otp_mail_otp.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() == 6) {
+                    String otp = s.toString();
+                    Log.d("otpChanged", "afterTextChanged: "+otp);
+                    otpEmail = otp;
+                    flagOtpMobileComplete = true;
+                }
+            }
         });
 
-        otp_mobile_otp.setOtpCompletionListener(new OnOtpCompletionListener() {
+        /*otp_mobile_otp.setOtpCompletionListener(new OnOtpCompletionListener() {
             @Override
             public void onOtpCompleted(String otp) {
                 Log.d("onOtpCompleted", otp);
                 otpMobile = otp;
                 flagOtpMobileComplete = true;
+            }
+        });*/
+
+
+        otp_mobile_otp.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() == 6) {
+                    String otp = s.toString();
+                    Log.d("onOtpCompleted", otp);
+                    otpMobile = otp;
+                    flagOtpMobileComplete = true;
+                }
             }
         });
 
@@ -154,7 +202,7 @@ public class BothOtpActivity extends BaseActivity {
             public void onClick(View v) {
                 if (connectionDetector.checkConnection(_act)) {
 
-
+                            otpMobile = otp_mobile_otp.getText().toString();
 
                             if (otpMobile != null && !otpMobile.isEmpty() && !otpMobile.equals("null")) {
                                 if (flagOtpMobileComplete) {

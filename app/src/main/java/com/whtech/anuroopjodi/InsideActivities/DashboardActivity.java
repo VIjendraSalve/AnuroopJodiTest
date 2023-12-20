@@ -1,12 +1,18 @@
 package com.whtech.anuroopjodi.InsideActivities;
 
+import android.Manifest;
 import android.accounts.NetworkErrorException;
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -19,8 +25,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -32,7 +41,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.whtech.anuroopjodi.BaseActivity;
 import com.whtech.anuroopjodi.Constant.IConstant;
 import com.whtech.anuroopjodi.Constant.IUrls;
@@ -68,6 +76,9 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeoutException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -196,7 +207,7 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
         changeFragment(newProfilesFragment, "New");
 
         //getVersionDetail();
-        Log.d("ProfileImagePath", "onCreate: "+SharedPref.getPrefs(_act, IConstant.UserProfileImagePath) + SharedPref.getPrefs(_act, IConstant.PROFILE_PHOTO));
+        Log.d("ProfileImagePath", "onCreate: " + SharedPref.getPrefs(_act, IConstant.UserProfileImagePath) + SharedPref.getPrefs(_act, IConstant.PROFILE_PHOTO));
         Glide.with(getApplicationContext())
                 .load(SharedPref.getPrefs(_act, IConstant.UserProfileImagePath) + SharedPref.getPrefs(_act, IConstant.PROFILE_PHOTO))
                 .apply(new RequestOptions().placeholder(R.drawable.default_user).error(R.drawable.default_user))
@@ -251,6 +262,7 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -374,13 +386,13 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
             intent.putExtra("title", "About Us");
             intent.putExtra("url", "https://anuroopjodi.com/Backup2022/app_about_us");
             startActivity(intent);
-           //Toast.makeText(_act, "Coming soon", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(_act, "Coming soon", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_term_condition) {
             Intent intent = new Intent(_act, ActivityInformation.class);
             intent.putExtra("title", "Terms and Conditions");
-                intent.putExtra("url", "https://anuroopjodi.com/Backup2022/app_term_condition_us");
+            intent.putExtra("url", "https://anuroopjodi.com/Backup2022/app_term_condition_us");
             startActivity(intent);
-           //Toast.makeText(_act, "Coming soon", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(_act, "Coming soon", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_contact_us) {
             Intent intent = new Intent(_act, ActivityInformation.class);
             intent.putExtra("title", "Contact Us");
@@ -468,7 +480,7 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
         Log.d("Values", "PROFILE_PHOTO_STATUS: " + SharedPref.getPrefs(DashboardActivity.this, IConstant.PROFILE_PHOTO_STATUS).equals("0"));
         Log.d("Values", "AADHAR_PHOTO_STATUS: " + SharedPref.getPrefs(DashboardActivity.this, IConstant.AADHAR_PHOTO_STATUS).equals("0"));
         webCallDashboard();
-        if (SharedPref.getPrefs(DashboardActivity.this, IConstant.PROFILE_PHOTO_STATUS).equals("0")) {
+        /*if (SharedPref.getPrefs(DashboardActivity.this, IConstant.PROFILE_PHOTO_STATUS).equals("0")) {
             Toast.makeText(_act, "Please Update Profile Photo", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
             startActivity(intent);
@@ -476,7 +488,7 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
             Toast.makeText(_act, "Please Update Adhar Card Photo", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
             startActivity(intent);
-        }
+        }*/
 
         Glide.with(getApplicationContext())
                 .load(SharedPref.getPrefs(_act, IConstant.UserProfileImagePath) + SharedPref.getPrefs(_act, IConstant.PROFILE_PHOTO))
@@ -580,7 +592,6 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
                             Shared_Preferences.setPrefs(_act, Constants.IsPlanExpired, jsonObject.getString("plan_expired"));
 
 
-
                             if (jsonObject.getString("plan_expired").equalsIgnoreCase("1")) {
                                 tvPackage.setVisibility(View.GONE);
                                 Shared_Preferences.setPrefs(_act, Constants.TotalMobileViews, "0");
@@ -593,6 +604,18 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
                             } else {
 
                                 JSONObject packageInfo = jsonObject.getJSONObject("package_details");
+                                String totalTime = packageInfo.getString("expired_date");
+                                Log.d("StringTime", "StringTime: " + totalTime);
+                                /*long currTime = System.currentTimeMillis();
+                                long daysRemaining = calculateDaysRemaining(totalTime);*/
+
+                                /*if (daysRemaining <= 400) {
+                                    showSubscriptionExpiryNotification(daysRemaining);
+                                    Toast.makeText(_act, "Expires in " + daysRemaining + " Days", Toast.LENGTH_LONG).show();
+                                } else {
+
+                                }*/
+
                                 Shared_Preferences.setPrefs(_act, Constants.TotalMobileViews, packageInfo.getString("mobile_views_allocated"));
                                 Shared_Preferences.setPrefs(_act, Constants.TotalEmailViews, packageInfo.getString("email_views_allocated"));
                                 Shared_Preferences.setPrefs(_act, Constants.UsedMobileViews, packageInfo.getString("view_mobile_used"));
@@ -626,6 +649,49 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
                     // webServiceCallProductFirstCall(keyWord, category_id);
                     // Helper_Method.dismissProgessBar();
 
+                }
+            }
+
+
+            private long calculateDaysRemaining(String inputDate) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date date = dateFormat.parse(inputDate);
+                    Date currentDate = new Date();
+                    long timeDifference = date.getTime() - currentDate.getTime();
+                    return timeDifference / (24 * 60 * 60 * 1000);
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    return -1;
+                }
+            }
+
+
+            private void showSubscriptionExpiryNotification(long remainingDays) {
+                // Create and show the notification
+                Context context = getApplicationContext();
+                createNotificationChannel(context);
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "subscription_channel")
+                        .setSmallIcon(R.drawable.applogonew)
+                        .setContentTitle("Subscription Expiring Soon")
+                        .setContentText("Your subscription will expire in " + remainingDays + " days. Renew now!")
+                        .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
+                notificationManager.notify(1, builder.build());
+            }
+
+            private void createNotificationChannel(Context context) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    CharSequence name = "Subscription Channel";
+                    String description = "Channel for subscription notifications";
+                    int importance = NotificationManager.IMPORTANCE_HIGH;
+                    NotificationChannel channel = new NotificationChannel("subscription_channel", name, importance);
+                    channel.setDescription(description);
+
+                    NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+                    notificationManager.createNotificationChannel(channel);
                 }
             }
 

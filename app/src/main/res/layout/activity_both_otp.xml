@@ -108,7 +108,7 @@
                         android:textSize="@dimen/margin_12" />
 
 
-                    <com.mukesh.OtpView
+                    <!--<com.mukesh.OtpView
                         android:id="@+id/otp_mail_otp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -124,7 +124,14 @@
                         app:itemWidth="35dp"
                         app:lineColor="@color/colorPrimary"
                         app:state_filled="true"
-                        app:viewType="none" />
+                        app:viewType="none" />-->
+
+                    <EditText
+                        android:id="@+id/otp_mail_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="6"
+                        />
 
                 </LinearLayout>
 
@@ -160,7 +167,7 @@
                         android:textSize="@dimen/margin_12" />
 
 
-                    <com.mukesh.OtpView
+                    <!--<com.mukesh.OtpView
                         android:id="@+id/otp_mobile_otp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -176,7 +183,16 @@
                         app:itemWidth="35dp"
                         app:lineColor="@color/colorPrimary"
                         app:state_filled="true"
-                        app:viewType="none" />
+                        app:viewType="none" />-->
+
+                    <EditText
+                        android:id="@+id/otp_mobile_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="6"
+                        android:inputType="number"
+                        android:gravity="center"
+                        />
 
                 </LinearLayout>
 

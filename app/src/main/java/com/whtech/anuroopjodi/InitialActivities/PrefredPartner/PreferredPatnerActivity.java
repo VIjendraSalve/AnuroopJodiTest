@@ -89,7 +89,7 @@ public class PreferredPatnerActivity extends BaseActivity {
     private ArrayList<SubcasteObject> subcasteObjectArrayList;
     private SearchableSpinner spinnerSubcastelist;
     private ArrayAdapter<SubcasteObject> spinnerSubcastelist_Adapter;
-    private String strSubCasteId = "0", strSubCaste;
+    private String strSubCasteId = "-1", strSubCaste;
     private TextView tvSubcaste;
 
     //State Spinner Zone
@@ -210,22 +210,31 @@ public class PreferredPatnerActivity extends BaseActivity {
                 }*/
                 if (strFromAgeId != null && !strFromAgeId.isEmpty() && !strFromAgeId.equals("null") && !strFromAgeId.equals("0")) {
 
+                    Log.d("Hcheck", "onClick: onepass");
                     if (strToAgeId != null && !strToAgeId.isEmpty() && !strToAgeId.equals("null") && !strToAgeId.equals("0")) {
 
+                        Log.d("Hcheck", "onClick: twopass");
                         if (strHeightFromId != null && !strHeightFromId.isEmpty() && !strHeightFromId.equals("null") && !strHeightFromId.equals("0")) {
-
+                            Log.d("Hcheck", "onClick: threepass");
                             if (strHeightToId != null && !strHeightToId.isEmpty() && !strHeightToId.equals("null") && !strHeightToId.equals("0")) {
 
+                                Log.d("Hcheck", "onClick: fourpass");
                                 //if (strSubCasteId != null && !strSubCasteId.isEmpty() && !strSubCasteId.equals("null") && !strSubCasteId.equals("0")) {
-                                if (SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_SUBCASTE_ID) != null && !SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_SUBCASTE_ID).isEmpty() && !SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_SUBCASTE_ID).equals("null") && !SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_SUBCASTE_ID).equals("")) {
+                                //if (SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_SUBCASTE_ID) != null && !SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_SUBCASTE_ID).isEmpty() && !SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_SUBCASTE_ID).equals("null") && !SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_SUBCASTE_ID).equals("")) {
+                                    Log.d("Hcheck", "onClick: fivepass");
                                     if (isValid()) {
+                                        Log.d("Hcheck", "onClick: sixpass");
                                         if (strManglik != null && !strManglik.isEmpty() && !strManglik.equals("null") && !strManglik.equals("0")) {
+                                            Log.d("Hcheck", "onClick: sevenpass");
                                             if (listMaritalStatusId.size() != 0) {
+                                                Log.d("Hcheck", "onClick: eightpass");
                                                 if (listWorkingId.size() != 0) {
+                                                    Log.d("Hcheck", "onClick: ninepass");
                                                   //  if (SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_EDUCATION_ID) != null && !SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_EDUCATION_ID).isEmpty() && !SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_EDUCATION_ID).equals("null") && !SharedPref.getPrefs(_act, IConstant.PREFERED_PARTNER_EDUCATION_ID).equals("")) {
 
                                                             if (connectionDetector.isConnectionAvailable()) {
                                                                 webcallProfessionDetails();
+                                                                Log.d("afterwebcall", "onClick: after webcall");
                                                             } else {
                                                                 Helper_Method.toaster_long(_act, getResources().getString(R.string.internet_connection_required));
                                                             }
@@ -249,14 +258,14 @@ public class PreferredPatnerActivity extends BaseActivity {
                                     }
 
 
-                                } else {
+                                /*} else {
                                     Helper_Method.toaster(_act, "Select Sub Caste");
-                                }
+                                }*/
                             } else {
-                                Helper_Method.toaster(_act, "Select Heght To");
+                                Helper_Method.toaster(_act, "Select Height To");
                             }
                         } else {
-                            Helper_Method.toaster(_act, "Select Heght From");
+                            Helper_Method.toaster(_act, "Select Height From");
                         }
                     } else {
                         Helper_Method.toaster(_act, "Select Age To");

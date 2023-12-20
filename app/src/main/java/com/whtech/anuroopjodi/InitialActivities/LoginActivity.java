@@ -300,6 +300,7 @@ public class LoginActivity extends BaseActivity {
                                         SharedPref.setPrefs(_act, IConstant.MAMAKUL, String.valueOf(jsonObjectData.getString("mama_kul")));
                                         SharedPref.setPrefs(_act, IConstant.CASTE_NAME, String.valueOf(jsonObjectData.getString("caste_name")));
                                         SharedPref.setPrefs(_act, IConstant.WORKING_CITY, String.valueOf(jsonObjectData.getString("working_city_present_name")));
+                                        Log.d("Hche", "onResponse: "+String.valueOf(jsonObjectData.getString("working_city_present_name")));
                                         SharedPref.setPrefs(_act, IConstant.WORKING_CITY_ID, String.valueOf(jsonObjectData.getString("working_city_present")));
                                         SharedPref.setPrefs(_act, IConstant.BIRTH_DATE, String.valueOf(jsonObjectData.getString("birthDate")));
                                         SharedPref.setPrefs(_act, IConstant.RELIGION, String.valueOf(jsonObjectData.getString("religion")));
@@ -501,6 +502,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         new AlertDialog.Builder(this)
                 .setTitle("Close")
                 .setMessage("Are you sure you want to close application?")

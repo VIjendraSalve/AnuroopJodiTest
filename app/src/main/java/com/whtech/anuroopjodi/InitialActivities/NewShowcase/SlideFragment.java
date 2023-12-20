@@ -81,7 +81,7 @@ public class SlideFragment extends Fragment {
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
         }
-        sliderViewModel.setIndex(index);
+        //sliderViewModel.setIndex(index);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -95,13 +95,13 @@ public class SlideFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_slide, container, false);
         final TextView textView = view.findViewById(R.id.section_label);
         final ImageView imageView = view.findViewById(R.id.imageView);
-        sliderViewModel.getText().observe(this, new Observer<Integer>() {
+       /* sliderViewModel.getText().observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer index) {
                 textView.setText(PAGE_TITLES[index]);
                 imageView.setImageResource(PAGE_IMAGE[index]);
             }
-        });
+        });*/
         return view;
     }
 }

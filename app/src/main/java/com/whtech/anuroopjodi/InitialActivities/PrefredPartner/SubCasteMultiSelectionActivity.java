@@ -103,7 +103,7 @@ public class SubCasteMultiSelectionActivity extends BaseActivity {
         rvProductType.setHasFixedSize(true);
         rvProductType.setNestedScrollingEnabled(false);
 
-        webcallSubcasteList();
+        //webcallSubcasteList();
 
 
         btnselect.setOnClickListener(new View.OnClickListener() {

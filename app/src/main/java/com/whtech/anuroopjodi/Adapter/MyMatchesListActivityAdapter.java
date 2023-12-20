@@ -116,13 +116,13 @@ public class MyMatchesListActivityAdapter extends RecyclerView.Adapter<MyMatches
                     elapsedYears + " Years, " +
                     listProfileObjectArrayList.get(position).user_height + ", " +
 //                listProfileObjectArrayList.get(position).city_name +", "+
-                    listProfileObjectArrayList.get(position).subCast + ", " +
+                    listProfileObjectArrayList.get(position).Caste_name + ", " +
                     listProfileObjectArrayList.get(position).education_name);
         } else {
             holder.tvExperience.setText("" +
                     listProfileObjectArrayList.get(position).user_height + ", " +
 //                listProfileObjectArrayList.get(position).city_name +", "+
-                    listProfileObjectArrayList.get(position).subCast + ", " +
+                    listProfileObjectArrayList.get(position).Caste_name + ", " +
                     listProfileObjectArrayList.get(position).education_name);
         }
 
