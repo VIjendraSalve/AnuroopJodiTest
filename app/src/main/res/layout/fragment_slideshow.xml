@@ -31,7 +31,7 @@
                     android:layout_gravity="center"
                     >
 
-                    <com.whtech.anuroopjodi.my_library.CircleImageView
+                    <com.wind.anuroopjodi.my_library.CircleImageView
                         android:id="@+id/ivProfileImage"
                         android:layout_width="300dp"
                         android:layout_height="300dp"
@@ -1579,14 +1579,14 @@
                     android:orientation="horizontal">
 
 
-                    <com.whtech.anuroopjodi.my_library.CircleImageView
+                    <com.wind.anuroopjodi.my_library.CircleImageView
                         android:id="@+id/ivAdharImg1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/default_128" />
 
-                    <com.whtech.anuroopjodi.my_library.CircleImageView
+                    <com.wind.anuroopjodi.my_library.CircleImageView
                         android:id="@+id/ivAdharImg2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

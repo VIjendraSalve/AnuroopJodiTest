@@ -16,6 +16,7 @@
             android:id="@+id/tabLayout_complain"
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_marginTop="?actionBarSize"
             android:minHeight="?actionBarSize"
             app:tabGravity="center"
             app:tabTextColor="@color/colorPrimary"

@@ -7,7 +7,7 @@
 
 
 
-    <com.whtech.anuroopjodi.my_library.CircleImageView
+    <com.wind.anuroopjodi.my_library.CircleImageView
         android:id="@+id/civ_user_pic"
         android:layout_width="100dp"
         android:layout_height="100dp"

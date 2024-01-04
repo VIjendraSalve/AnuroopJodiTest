@@ -1824,7 +1824,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:text="ABout Me"
+                    android:text="About Me"
                     android:layout_below="@+id/tvFullName"
                     android:layout_marginTop="@dimen/margin_10"
                     android:textSize="@dimen/sixteen"/>
@@ -3811,7 +3811,7 @@
                 android:padding="@dimen/margin_5"
                 android:text="ShortList"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/btn_intrested"
@@ -3825,7 +3825,7 @@
                 android:padding="@dimen/margin_5"
                 android:text="Intrested"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/btn_report"
@@ -3839,7 +3839,7 @@
                 android:padding="@dimen/margin_5"
                 android:text="Report"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/btn_block"
@@ -3853,7 +3853,7 @@
                 android:padding="@dimen/margin_5"
                 android:text="Block"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="13sp" />
 
         </LinearLayout>
 

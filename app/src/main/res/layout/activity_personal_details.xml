@@ -59,7 +59,7 @@
                 android:layout_marginTop="@dimen/ten"
                 android:gravity="center">
 
-                <com.whtech.anuroopjodi.my_library.CircleImageView
+                <com.wind.anuroopjodi.my_library.CircleImageView
                     android:id="@+id/ivProfileImage"
                     android:layout_width="220dp"
                     android:layout_height="120dp"
@@ -128,7 +128,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_gravity="center">
 
-                            <com.whtech.anuroopjodi.my_library.CircleImageView
+                            <com.wind.anuroopjodi.my_library.CircleImageView
                                 android:id="@+id/ivAdharImg1"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
@@ -171,7 +171,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_gravity="center">
 
-                            <com.whtech.anuroopjodi.my_library.CircleImageView
+                            <com.wind.anuroopjodi.my_library.CircleImageView
                                 android:id="@+id/ivAdharImg2"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
@@ -275,7 +275,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_gravity="center">
 
-                            <com.whtech.anuroopjodi.my_library.CircleImageView
+                            <com.wind.anuroopjodi.my_library.CircleImageView
                                 android:id="@+id/ivHoroscopeImage"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
@@ -425,7 +425,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -490,7 +490,7 @@
                     android:textColor="@color/black"
                     android:textSize="10dp" />
 
-            </LinearLayout>
+            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -501,23 +501,33 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="70dp">
+                    android:layout_height="@dimen/margin_70">
 
-                    <EditText
-                        android:id="@+id/etComplexion"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="15dp"
-                        android:background="@drawable/border_layout"
-                        android:drawableRight="@drawable/ic_user"
-                        android:drawablePadding="10dp"
-                        android:drawableTint="@color/black"
-                        android:hint="Fair"
-                        android:inputType="text|textNoSuggestions"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textSize="12dp" />
+                        android:background="@drawable/border_layout">
+
+                        <ImageView
+                            android:id="@+id/iv_userCom"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/margin_10"
+                            app:srcCompat="@drawable/ic_user" />
+
+                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                            android:id="@+id/spinnerComplexion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/iv_userCom"
+                            android:gravity="center_vertical" />
+
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -526,11 +536,20 @@
                         android:layout_marginTop="7dp"
                         android:layout_marginRight="15dp"
                         android:background="#ffffff"
-                        android:text="@string/lbl_complexion_hint"
+                        android:text="@string/lbl_your_complexion"
                         android:textColor="@color/black"
                         android:textSize="12dp" />
                 </RelativeLayout>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_marginTop="@dimen/margin_3"
+                    android:background="#ffffff"
+                    android:text="@string/lbl_complexion_hint"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
 
             </LinearLayout>
 

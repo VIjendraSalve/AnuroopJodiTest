@@ -176,6 +176,8 @@
     <string name="lbl_your_rashi">Your Rashi</string>
     <string name="lbl_your_rashi_hint">Rashi of bride / groom</string>
     <string name="lbl_your_nakshatra_hint">Nakshatra of bride / groom</string>
+    <string name="lbl_your_gan_hint">Gan of bride / groom</string>
+    <string name="lbl_your_nadi_hint">Nadi of bride / groom</string>
     <string name="lbl_smoking">Smoking</string>
     <string name="lbl_diet">Diet</string>
     <string name="lbl_drinking">Drinking</string>

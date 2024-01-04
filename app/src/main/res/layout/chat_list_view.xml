@@ -29,7 +29,7 @@
                 android:layout_weight="2.5">
 
 
-                <com.whtech.anuroopjodi.my_library.CircleImageView
+                <com.wind.anuroopjodi.my_library.CircleImageView
                     android:id="@+id/iv_userImage"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
